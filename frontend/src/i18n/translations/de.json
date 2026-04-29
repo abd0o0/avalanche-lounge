@@ -1,0 +1,154 @@
+{
+  "brand": {
+    "name": "Avalanche",
+    "arabic": "\u0627\u0644\u0634\u0644\u0627\u0644",
+    "slogan": "Lounge \u00b7 Shisha \u00b7 Bar",
+    "tagline": "Deine Premium-Lounge in Dortmund. Shisha, Cocktails, Essen & unvergessliche N\u00e4chte."
+  },
+  "nav": {
+    "home": "Startseite",
+    "events": "Events",
+    "menu": "Men\u00fc",
+    "reservation": "Reservierung"
+  },
+  "home": {
+    "cta": "Wo die Stimmung anders ist",
+    "reserve": "Tisch reservieren",
+    "viewMenu": "Men\u00fc ansehen",
+    "aboutTitle": "\u00dcber uns",
+    "aboutTitleText": "Mehr als nur eine Lounge",
+    "aboutText": "Willkommen bei Avalanche, deiner Premium-Lounge in Dortmund. Wir verbinden orientalische W\u00e4rme mit moderner Eleganz und schaffen eine Atmosph\u00e4re, die sich einzigartig anf\u00fchlt. Handgemachte Cocktails, Premium-Shisha, gutes Essen und eine Energie, die mit der Nacht w\u00e4chst. Ob zum Entspannen oder Feiern - hier bist du richtig.",
+    "aboutText2": "Handgemachte Cocktails, Premium-Shisha, gutes Essen und eine Energie, die mit der Nacht w\u00e4chst. Ob zum Entspannen oder Feiern - hier bist du richtig.",
+    "offersTitle": "Was wir bieten",
+    "experienceTitle": "Erlebe Avalanche",
+    "ctaBannerTitle": "Bereit f\u00fcr eine Nacht raus?",
+    "ctaBannerText": "Reserviere jetzt deinen Tisch - oder komm einfach vorbei und lass die Nacht entscheiden.",
+    "offers": {
+      "shisha": {
+        "title": "Premium Shisha",
+        "arabic": "\u0634\u064a\u0634\u0629",
+        "desc": "\u00dcber 8 Sorten. Premium-Tabak. Kohle-Nachservice inklusive.",
+        "tag": "Ab \u20ac14"
+      },
+      "cocktails": {
+        "title": "Cocktails & Bar",
+        "arabic": "\u0628\u0627\u0631 \u0648\u0643\u0648\u0643\u062a\u064a\u0644",
+        "desc": "Signature-Drinks und Klassiker. Perfekt gemixt.",
+        "tag": "Ab \u20ac7.50"
+      },
+      "food": {
+        "title": "K\u00fcche & Bites",
+        "arabic": "\u0645\u0637\u0628\u062e",
+        "desc": "Von Loaded Fries bis Wagyu-Burger. Essen, das trifft.",
+        "tag": "Ab \u20ac6.50"
+      }
+    }
+  },
+  "menu": {
+    "title": "Unser Men\u00fc",
+    "arabicTitle": "\u0642\u0627\u0626\u0645\u062a\u0646\u0627",
+    "subtitle": "Cocktails, Mocktails, Kaffee, Essen - und nat\u00fcrlich Premium-Shisha.",
+    "tabDrinks": "Getr\u00e4nke & Essen",
+    "tabShisha": "Shisha",
+    "flipPrompt": "Durch das Men\u00fc bl\u00e4ttern",
+    "shishaTitle": "Shisha-Men\u00fc",
+    "shishaArabic": "\u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0634\u064a\u0634\u0629",
+    "shishaDesc": "Premium-Tabak & Kohle. Kohle-Nachservice und Mundst\u00fcck nach Wahl inklusive.",
+    "shishaFlavours": "Sorten",
+    "shishaFlavoursList": {
+      "doubleApple_arabic": "Klassische s\u00fc\u00dfe Apfelmischung - unser Bestseller.",
+      "grapeMint_arabic": "Frische Traube mit k\u00fchlem Minz-Finish.",
+      "watermelonIce_arabic": "Gek\u00fchlte Wassermelone mit icy Frische.",
+      "blueMist_arabic": "Blaubeere & Anis - weich und tief.",
+      "lemonMint_arabic": "Spritzige Zitrone mit Minz-Kick.",
+      "roseGold_arabic": "Florale Rose mit einem Hauch Vanille.",
+      "guavaPassion_arabic": "Tropische Guave & Passionsfrucht.",
+      "melonBreeze_arabic": "Leichte Honigmelone, sanfter Rauch."
+    },
+    "menuSections": {
+      "hotCoffee": "Hei\u00dfer Kaffee",
+      "coldCoffee": "Kalter Kaffee",
+      "signature": "Signatures",
+      "classics": "Klassiker",
+      "mocktails": "Mocktails",
+      "freshJuices": "Frische S\u00e4fte",
+      "starters": "Vorspeisen",
+      "mains": "Hauptgerichte",
+      "softDrinks": "Softdrinks",
+      "milkshakes": "Milkshakes & Smoothies",
+      "beer": "Bier",
+      "wine": "Wein & Schaumwein"
+    }
+  },
+  "events": {
+    "title": "Events",
+    "whatsOn": "Was ist los",
+    "upcoming": "Kommende Events",
+    "calendarTitle": "Eventkalender",
+    "privateEvents": "Private Events",
+    "privateEventsDesc": "Ihr seid eine Gruppe? Geburtstag, Junggesellenabschied, Firmenfeier - wir haben den Raum und die Stimmung.",
+    "inquire": "Jetzt anfragen",
+    "openingHours": "\u00d6ffnungszeiten",
+    "eventFallback1": "Ladies Night",
+    "eventFallback1Desc": "Jeden Donnerstag - ein gratis Cocktail f\u00fcr jede Dame. Gute Vibes die ganze Nacht.",
+    "eventFallback2": "DJ Night",
+    "eventFallback2Desc": "Freitagn\u00e4chte - Live-DJ ab 22:00. Tanzen bis 5 Uhr.",
+    "eventFallback3": "Shisha Championship",
+    "eventFallback3Desc": "Zeig dein Cloud-Game. Preise f\u00fcr die gr\u00f6\u00dften und kreativsten Clouds.",
+    "eventFallback4": "Arabische Nacht",
+    "eventFallback4Desc": "Orientalische Musik, spezielle Shisha-Mischungen und ein Men\u00fc mit Herz."
+  },
+  "reservation": {
+    "title": "Reservierung",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "guests": "Anzahl G\u00e4ste",
+    "guestsPlaceholder": "G\u00e4ste ausw\u00e4hlen",
+    "date": "Datum",
+    "time": "Uhrzeit",
+    "email": "E-Mail",
+    "message": "Nachricht / Sonderw\u00fcnsche",
+    "send": "Reservierungsanfrage senden \u2192",
+    "sending": "Wird gesendet...",
+    "success": "Anfrage gesendet! Wir best\u00e4tigen deine Reservierung in K\u00fcrze.",
+    "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut oder ruf uns direkt an.",
+    "confirmation": "Wir best\u00e4tigen deine Reservierung per E-Mail innerhalb von 24 Stunden."
+  },
+  "openingHours": {
+    "monThu": "Mo - Do: 16:00 - 02:00",
+    "friSat": "Fr - Sa: 16:00 - 05:00",
+    "sunday": "Sonntag: 16:00 - 02:00"
+  },
+  "footer": {
+    "newsletter": "Aktuell bleiben",
+    "newsletterPlaceholder": "E-Mail eingeben",
+    "newsletterSubmit": "Abonnieren",
+    "subscribed": "Du bist angemeldet!",
+    "navTitle": "Navigation",
+    "hours": "\u00d6ffnungszeiten",
+    "contact": "Kontakt",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "reserve": "Tisch reservieren",
+    "copyright": "Alle Rechte vorbehalten."
+  },
+  "days": ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+  "months": [
+    "Januar",
+    "Februar",
+    "M\u00e4rz",
+    "April",
+    "Mai",
+    "Juni",
+    "Juli",
+    "August",
+    "September",
+    "Oktober",
+    "November",
+    "Dezember"
+  ],
+  "about": {
+    "title": "\u00dcber uns",
+    "arabic": "\u0639\u0646\u0627"
+  }
+}

@@ -171,12 +171,12 @@ function Reservation() {
 
             {status === 'success' && (
               <div className="mb-6 p-4 rounded-xl bg-green-900/30 border border-green-500/40 text-green-300 text-sm">
-                ✅ {t("reservation.success")}'ll confirm your reservation shortly.
+                {t("reservation.success")}
               </div>
             )}
             {status === 'error' && (
               <div className="mb-6 p-4 rounded-xl bg-red-900/30 border border-red-500/40 text-red-300 text-sm">
-                ❌ {t("reservation.error")}
+                {t("reservation.error")}
               </div>
             )}
 
@@ -293,11 +293,11 @@ function Reservation() {
                   boxShadow: loading ? 'none' : '0 0 20px rgba(6,182,212,0.2)',
                 }}
               >
-                {loading ? '{t("reservation.sending")}' : '{t("reservation.send")}'}
+                {loading ? t("reservation.sending") : t("reservation.send")}
               </button>
 
               <p className="text-gray-600 text-xs text-center">
-                {t("reservation.confirmation")}'ll confirm your reservation by email within 24 hours.
+                {t("reservation.confirmation")}
               </p>
             </form>
           </div>

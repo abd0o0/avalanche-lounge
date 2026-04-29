@@ -1,27 +1,17 @@
+import React, { forwardRef } from 'react';
 
-import PropTypes from "prop-types";
-import React, { useState , useEffect , forwardRef } from 'react';
-
-
-const Page = forwardRef((props, ref) => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+const Page = forwardRef(({ children, number }, ref) => {
   return (
-    <div className="demoPage bg-amber-100" ref={ref}>
-      <div className="h-full">{props.children}</div>
-      <p className="text-xs text-end text-black pb-4">
-        Page number: {props.number}
-      </p>
+    <div
+      className="demoPage w-full h-full bg-white dark:bg-gray-900 text-gray-900 dark:text-white overflow-hidden"
+      ref={ref}
+      data-density={number === 1 || number === 10 ? 'hard' : 'soft'}
+    >
+      {children}
     </div>
   );
 });
 
 Page.displayName = 'Page';
-
-Page.propTypes = {
-  children: PropTypes.node,
-  number: PropTypes.number,
-};
 
 export default Page;

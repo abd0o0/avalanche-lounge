@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from '../../i18n/useTranslation.jsx';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -16,16 +16,22 @@ const VITE_BACKEND = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000'
 
 // Months handled by translation
 
-// Static fallback events when backend is offline
-const FALLBACK_EVENTS = [
-  { _id: '1', name: '{t("events.eventFallback1")}', description: '{t("events.eventFallback1Desc")}', date: new Date(Date.now() + 3*24*3600*1000).toISOString(), image: img1 },
-  { _id: '2', name: '{t("events.eventFallback2")}', description: '{t("events.eventFallback2Desc")}', date: new Date(Date.now() + 5*24*3600*1000).toISOString(), image: img2 },
-  { _id: '3', name: '{t("events.eventFallback3")}', description: '{t("events.eventFallback3Desc")}', date: new Date(Date.now() + 10*24*3600*1000).toISOString(), image: img3 },
-  { _id: '4', name: '{t("events.eventFallback4")}', description: '{t("events.eventFallback4Desc")}', date: new Date(Date.now() + 14*24*3600*1000).toISOString(), image: img4 },
-];
-
 function Event() {
   const { t } = useTranslation();
+  const translatedMonths = t('months');
+  const translatedDays = t('days');
+  const months = Array.isArray(translatedMonths)
+    ? translatedMonths
+    : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const daysOfWeek = Array.isArray(translatedDays)
+    ? translatedDays
+    : ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const fallbackEvents = [
+    { _id: '1', name: t('events.eventFallback1') || 'Live DJ Night', description: t('events.eventFallback1Desc') || 'Music, vibes and cocktails all night.', date: new Date(Date.now() + 3 * 24 * 3600 * 1000).toISOString(), image: img1 },
+    { _id: '2', name: t('events.eventFallback2') || 'Shisha Special', description: t('events.eventFallback2Desc') || 'Enjoy exclusive flavors and lounge ambiance.', date: new Date(Date.now() + 5 * 24 * 3600 * 1000).toISOString(), image: img2 },
+    { _id: '3', name: t('events.eventFallback3') || 'Ladies Night', description: t('events.eventFallback3Desc') || 'Special offers and curated playlist.', date: new Date(Date.now() + 10 * 24 * 3600 * 1000).toISOString(), image: img3 },
+    { _id: '4', name: t('events.eventFallback4') || 'Weekend Party', description: t('events.eventFallback4Desc') || 'Reserve early for the best tables.', date: new Date(Date.now() + 14 * 24 * 3600 * 1000).toISOString(), image: img4 },
+  ];
   const [events, setEvents] = useState([]);
   const today = new Date();
   const currentMonth = today.getMonth();
@@ -39,11 +45,11 @@ function Event() {
     window.scrollTo(0, 0);
     fetch(`${VITE_BACKEND}/api/event/all`)
       .then(r => r.json())
-      .then(data => setEvents(Array.isArray(data) && data.length ? data : FALLBACK_EVENTS))
-      .catch(() => setEvents(FALLBACK_EVENTS));
+      .then(data => setEvents(Array.isArray(data) && data.length ? data : fallbackEvents))
+      .catch(() => setEvents(fallbackEvents));
   }, []);
 
-  const displayEvents = events.length ? events : FALLBACK_EVENTS;
+  const displayEvents = events.length ? events : fallbackEvents;
 
   return (
     <div className="bg-white dark:bg-gray-950 min-h-screen">

@@ -1,12 +1,15 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import en from './translations/en.json';
+import de from './translations/de.json';
+import ar from './translations/ar.json';
 
-const translations = { en };
+const translations = { en, de, ar };
 const I18nContext = createContext();
 
 export const I18nProvider = ({ children }) => {
   const [locale, setLocale] = useState(() => {
-    return localStorage.getItem('locale') || 'en';
+    const saved = localStorage.getItem('locale');
+    return translations[saved] ? saved : 'en';
   });
 
   useEffect(() => {
