@@ -46,11 +46,7 @@ const Navbar = () => {
               </div>
               <div className="hidden sm:block">
                 <h1 className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600 bg-clip-text text-transparent">{t('brand.name')}</h1>
-                {locale === 'ar' && (
-                  <p className="text-xs text-gray-500 font-medium tracking-widest" style={{ fontFamily: '"Noto Naskh Arabic", serif' }}>
-                    {t('brand.arabic')}
-                  </p>
-                )}
+
               </div>
             </div>
           </Link>
