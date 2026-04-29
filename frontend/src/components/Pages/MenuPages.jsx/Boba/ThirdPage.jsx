@@ -27,7 +27,7 @@ const ThirdPage = () => (
     <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/70 to-black/88" />
     <div className="relative z-10 h-full flex flex-col p-3 md:p-5 overflow-hidden">
       <div className="text-center mb-3">
-        <h1 className="text-base md:text-2xl font-bold text-white tracking-widest uppercase">🧃 Mocktails &amp; Juices</h1>
+        <h1 className="text-base md:text-2xl font-bold text-white tracking-widest uppercase"> Mocktails &amp; Juices</h1>
         <div className="w-12 h-px bg-cyan-400/60 mx-auto mt-1" />
       </div>
       <div className="flex-1 overflow-hidden">

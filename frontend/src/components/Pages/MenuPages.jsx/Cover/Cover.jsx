@@ -17,7 +17,7 @@ const Cover = () => (
       {/* Top */}
       <div className="flex flex-col items-center">
         <div className="w-12 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent mb-2" />
-        <p className="text-cyan-300 tracking-[0.3em] text-xs uppercase">Est. 2025 · Dortmund</p>
+        <p className="text-cyan-300 tracking-[0.3em] text-xs uppercase">Est. 2026 · Essen</p>
         <div className="w-12 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent mt-2" />
       </div>
 

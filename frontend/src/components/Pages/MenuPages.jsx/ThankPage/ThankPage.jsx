@@ -10,7 +10,7 @@ const ThankPage = () => (
       <div className="w-12 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
 
       <div className="flex flex-col items-center text-center space-y-3">
-        <span className="text-4xl">🙏</span>
+     
         <h2 className="text-3xl md:text-5xl font-bold text-white drop-shadow-lg">
           Thank You
         </h2>
