@@ -16,10 +16,7 @@ import ThankPage from './MenuPages.jsx/ThankPage/ThankPage.jsx';
 // Import other components and assets as before
 
 const BgTextureStyle = {
-  backgroundImage: `url(${BgTexture})`,
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
+  background: 'linear-gradient(160deg, #050810 0%, #0a1628 50%, #050810 100%)',
   minHeight: '100vh',
   width: '100%',
 };

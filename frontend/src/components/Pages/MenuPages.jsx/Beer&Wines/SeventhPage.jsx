@@ -1,148 +1,59 @@
-import wines from '../../../../assets/Menu_assets/wines.png';
+import React from 'react';
 
-const winesStyle = {
-  backgroundImage: `url(${wines})`,
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: 'contain',
-  backgroundPosition: 'center',
-  minHeight: '50vh',
-  opacity: '0.09',
+const pageStyle = {
+  background: 'linear-gradient(160deg, #0a0a0f 0%, #0d1a2e 100%)',
+  height: '100%',
   width: '100%',
+  fontFamily: 'Poppins, sans-serif',
+  color: '#f1f5f9',
 };
 
-const SeventhPage = () => {
-  return (
-    <div className="h-full">
-      <div
-        style={winesStyle}
-        className="h-full absolute inset-0 md:min-h-100vh"
-      ></div>
-      <main className="h-full w-full bg-secondary page-shadow relative z-10 md:p-10 p-4">
-        <div className="space-y-2">
-          <div className="text-center">
-            <h1 className="text-2xl md:text-6xl font-bold text-gray-900">
-              BEER/WINE
-            </h1>
-            <p className="text-gray-600 md:text-[16px] text-xs">
-              Good beer and wine make life&apos;s moments memorable
-            </p>
-          </div>
-
-          <div className="p-1 flex flex-row gap-16">
-            <div className="space-y-2 w-1/2">
-              <div className="flex justify-between">
-                <div>
-                  <h2 className="md:text-xl text-xs font-semibold">
-                    Babe Rose
-                  </h2>
-                </div>
-              </div>
-
-              <div className="flex justify-between">
-                <div>
-                  <h2 className="md:text-xl text-xs font-semibold">
-                    Archer Roose White/Red
-                  </h2>
-                </div>
-              </div>
-
-              <div className="flex justify-between">
-                <div>
-                  <h2 className="md:text-xl text-xs font-semibold">
-                    Kona Lager
-                  </h2>
-                </div>
-              </div>
-
-              <div className="flex justify-between">
-                <div>
-                  <h2 className="md:text-xl text-xs font-semibold">
-                    Blue Point
-                  </h2>
-                </div>
-              </div>
-
-              <div className="flex justify-between">
-                <div>
-                  <h2 className="md:text-xl text-xs font-semibold">
-                    Juneshine
-                  </h2>
-                </div>
-              </div>
-
-              <div className="flex justify-between">
-                <div>
-                  <h2 className="md:text-xl text-xs font-semibold">
-                    Lunar Hard Seltzers
-                  </h2>
-                </div>
-              </div>
-
-              <div className="flex justify-between">
-                <div>
-                  <h2 className="md:text-xl text-xs font-semibold">
-                    Allagash White
-                  </h2>
-                </div>
-              </div>
-
-              <div className="flex justify-between">
-                <div>
-                  <h2 className="md:text-xl text-xs font-semibold">
-                    Doc Cider
-                  </h2>
-                </div>
-              </div>
-
-              <div className="md:flex hidden justify-between">
-                <div>
-                  <h2 className="md:text-xl text-xsfont-semibold">
-                    Stella Artois
-                  </h2>
-                </div>
-              </div>
-
-              <div className="md:flex justify-between hidden">
-                <div>
-                  <h2 className="md:text-xl text-xs font-semibold">Shocktop</h2>
-                </div>
-              </div>
-
-              <div className="md:flex hidden justify-between">
-                <div>
-                  <h2 className="md:text-xl text-xs font-semibold">Finback</h2>
-                </div>
-              </div>
-
-              <div className="md:flex hidden justify-between">
-                <div>
-                  <h2 className="md:text-xl text-xsfont-semibold">
-                    Three&apos;s Brewery
-                  </h2>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-2 w-1/2">
-              <div className="flex justify-between">
-                <div className="bg-red-200 p-3 rounded-e-3xl text-center bg-opacity-25">
-                  <h2 className="md:text-lg text-xs font-semibold bg-yellow-200 p-1 rounded-3xl">
-                    ROTATING MENU
-                  </h2>
-                  <p className="md:text-[16px] text-xs">
-                    Check out our rotating selection from local breweries!
-                  </p>
-                  <p className="md:text-[16px] text-xs">
-                    (tall silver cans on our counter)
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
+const MenuItem = ({ name, arabic, price, desc }) => (
+  <div className="flex justify-between items-start border-b border-white/10 pb-2 mb-2">
+    <div className="flex-1 pr-2">
+      <div className="flex items-baseline gap-2">
+        <span className="font-semibold text-xs md:text-sm text-white">{name}</span>
+        {arabic && (
+          <span className="text-gray-400 text-xs" style={{ fontFamily: '"Noto Naskh Arabic", serif' }}>
+            {arabic}
+          </span>
+        )}
+      </div>
+      {desc && <p className="text-gray-500 text-xs">{desc}</p>}
     </div>
-  );
-};
+    <span className="text-cyan-400 font-semibold text-xs md:text-sm whitespace-nowrap">{price}</span>
+  </div>
+);
+
+const SectionTitle = ({ en, ar }) => (
+  <div className="text-center mb-3">
+    <h2 className="text-lg md:text-2xl font-bold"
+      style={{ background: 'linear-gradient(90deg, #67e8f9, #3b82f6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+      {en}
+    </h2>
+    {ar && <p className="text-gray-500 text-xs" style={{ fontFamily: '"Noto Naskh Arabic", serif' }}>{ar}</p>}
+    <div className="w-10 h-px bg-cyan-500/50 mx-auto mt-1" />
+  </div>
+);
+
+const SeventhPage = () => (
+  <div style={pageStyle} className="p-4 md:p-8 overflow-hidden">
+    <SectionTitle en="BEER" ar="بيرة" />
+    <MenuItem name="Becks (0.33L)" price="€3.50" desc="German lager" />
+    <MenuItem name="Heineken (0.33L)" price="€3.50" />
+    <MenuItem name="Corona (0.33L)" price="€4.00" desc="With lime" />
+    <MenuItem name="Craft Beer (0.33L)" price="€5.00" desc="Rotating local selection" />
+    <MenuItem name="Non-Alcoholic Beer" arabic="بيرة بلا كحول" price="€3.50" />
+
+    <div className="mt-3">
+      <SectionTitle en="WINES" ar="نبيذ" />
+      <MenuItem name="House White (0.2L)" arabic="نبيذ أبيض" price="€5.50" />
+      <MenuItem name="House Red (0.2L)" arabic="نبيذ أحمر" price="€5.50" />
+      <MenuItem name="Rosé (0.2L)" arabic="نبيذ روزيه" price="€5.50" />
+      <MenuItem name="Prosecco (glass)" price="€6.00" desc="Italian sparkling" />
+      <MenuItem name="Aperol Spritz" price="€7.50" desc="Aperol, prosecco, orange" />
+    </div>
+  </div>
+);
 
 export default SeventhPage;

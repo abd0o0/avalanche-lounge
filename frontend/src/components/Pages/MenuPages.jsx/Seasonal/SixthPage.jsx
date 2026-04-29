@@ -1,124 +1,61 @@
-import lemonade from '../../../../assets/Menu_assets/lemonade.png';
+import React from 'react';
 
-const lemonadeStyle = {
-  backgroundImage: `url(${lemonade})`,
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: 'contain',
-  backgroundPosition: 'center',
-  minHeight: '50vh',
-  opacity: '0.09',
+const pageStyle = {
+  background: 'linear-gradient(160deg, #0a0a0f 0%, #0d1a2e 100%)',
+  height: '100%',
   width: '100%',
+  fontFamily: 'Poppins, sans-serif',
+  color: '#f1f5f9',
 };
 
-const SixthPage = () => {
-  return (
-    <div className="h-full">
-      <div
-        style={lemonadeStyle}
-        className="h-full absolute inset-0 md:min-h-100vh"
-      ></div>
-      <main className="h-full w-full bg-secondary page-shadow relative z-10 md:p-10 p-2">
-        <div className="md:space-y-2 space-y-0">
-          <div className="text-center">
-            <h1 className="text-2xl md:text-6xl font-bold text-gray-900">
-              SEASONAL MENU
-            </h1>
-            <p className="text-gray-600 text-xs md:text-[16px]">
-              A salad is not a meal, it is a style.
-            </p>
-          </div>
-
-          <div className="p-1 flex flex-row gap-16">
-            <div className="space-y-2 w-1/2">
-              <div className="flex justify-between">
-                <div>
-                  <h2 className="md:text-xl text-xs font-semibold">
-                    Pina Colada
-                  </h2>
-                  <p className="text-xs md:text-[16px]">Medium: $4.75</p>
-                  <p className="text-xs md:text-[16px]">Large: $5.75</p>
-                  <p className="text-xs md:text-[16px] md:block hidden">
-                    Our coconut boba with pineapple flavor!
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex justify-between">
-                <div>
-                  <h2 className="md:text-xl text-xs font-semibold">
-                    MATCHA LEMONADE
-                  </h2>
-                  <p className="text-xs md:text-[16px]">Medium: $5.00</p>
-                  <p className="text-xs md:text-[16px]">Large: $6.00</p>
-                </div>
-              </div>
-
-              <div className="flex justify-between">
-                <div>
-                  <h2 className="md:text-xl text-xs font-semibold">YUZU-ADE</h2>
-                  <p className="text-xs md:text-[16px]">Large: $5.25</p>
-                </div>
-              </div>
-
-              <div className="flex justify-between">
-                <div>
-                  <h2 className="md:text-xl text-xs font-semibold">
-                    FRESHLY SQUEEZED LEMONADE
-                  </h2>
-                  <p className="text-xs md:text-[16px]">Medium: $4.00</p>
-                  <p className="text-xs md:text-[16px]">Large: $5.00</p>
-                  <p className="text-xs md:text-[16px] md:block hidden">
-                    Real lemons with our signature recipe = amazing lemonade
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-2 w-1/2">
-              <div className="flex justify-between">
-                <div>
-                  <h2 className="md:text-xl text-xs font-semibold">
-                    Berry Lavender Lemonade
-                  </h2>
-                  <p className="text-xs md:text-[16px]">Medium: $5.25</p>
-                  <p className="text-xs md:text-[16px]">Large: $6.25</p>
-                  <p className="text-xs md:text-[16px] md:block hidden">
-                    Made with real bourbon and definitely the drink we&apos;re
-                    most excited for this fall.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex justify-between">
-                <div>
-                  <h2 className="md:text-xl text-xs font-semibold">
-                    Citrus Boba (Grapefruit or Orange)
-                  </h2>
-                  <p className="text-xs md:text-[16px]">Large: $6.00</p>
-                  <p className="text-xs md:text-[16px] md:block hidden  ">
-                    Made with real fruit juice and fruit slices!
-                  </p>
-                </div>
-              </div>
-
-              <div className="hidden md:flex justify-between">
-                <div>
-                  <h2 className="md:text-xl text-xs font-semibold md:bg-blue-100 md:p-2 md:mb-4 md:rounded-lg">
-                    ROTATING BEER/WINE PROGRAM
-                  </h2>
-                  <p className="text-xs md:text-[16px] md:bg-amber-200 md:px-6 md:py-4 md:rounded-full">
-                    Check out our beer and wine at the front of our store!
-                    We&apos;re constantly rotating out product from local
-                    breweries!
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
+const MenuItem = ({ name, arabic, price, desc }) => (
+  <div className="flex justify-between items-start border-b border-white/10 pb-2 mb-2">
+    <div className="flex-1 pr-2">
+      <div className="flex items-baseline gap-2">
+        <span className="font-semibold text-xs md:text-sm text-white">{name}</span>
+        {arabic && (
+          <span className="text-gray-400 text-xs" style={{ fontFamily: '"Noto Naskh Arabic", serif' }}>
+            {arabic}
+          </span>
+        )}
+      </div>
+      {desc && <p className="text-gray-500 text-xs">{desc}</p>}
     </div>
-  );
-};
+    <span className="text-cyan-400 font-semibold text-xs md:text-sm whitespace-nowrap">{price}</span>
+  </div>
+);
+
+const SectionTitle = ({ en, ar }) => (
+  <div className="text-center mb-3">
+    <h2 className="text-lg md:text-2xl font-bold"
+      style={{ background: 'linear-gradient(90deg, #67e8f9, #3b82f6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+      {en}
+    </h2>
+    {ar && <p className="text-gray-500 text-xs" style={{ fontFamily: '"Noto Naskh Arabic", serif' }}>{ar}</p>}
+    <div className="w-10 h-px bg-cyan-500/50 mx-auto mt-1" />
+  </div>
+);
+
+const SixthPage = () => (
+  <div style={pageStyle} className="p-4 md:p-8 overflow-hidden">
+    <SectionTitle en="SOFT DRINKS" ar="مشروبات غازية" />
+    <MenuItem name="Coca-Cola" price="€3.00" />
+    <MenuItem name="Coca-Cola Zero" price="€3.00" />
+    <MenuItem name="Fanta Orange" price="€3.00" />
+    <MenuItem name="Sprite" price="€3.00" />
+    <MenuItem name="Red Bull" price="€4.50" />
+    <MenuItem name="Still Water (0.5L)" arabic="ماء" price="€2.50" />
+    <MenuItem name="Sparkling Water (0.5L)" price="€2.50" />
+
+    <div className="mt-3">
+      <SectionTitle en="MILKSHAKES & SMOOTHIES" ar="ميلك شيك وسموذي" />
+      <MenuItem name="Vanilla Milkshake" arabic="ميلك شيك فانيليا" price="€6.00" />
+      <MenuItem name="Chocolate Milkshake" arabic="ميلك شيك شوكولاتة" price="€6.00" />
+      <MenuItem name="Strawberry Milkshake" arabic="ميلك شيك فراولة" price="€6.00" />
+      <MenuItem name="Mango Smoothie" arabic="سموذي مانجو" price="€6.50" desc="Mango, banana, orange" />
+      <MenuItem name="Berry Blast" arabic="بيري بلاست" price="€6.50" desc="Mixed berries & yogurt" />
+    </div>
+  </div>
+);
 
 export default SixthPage;
