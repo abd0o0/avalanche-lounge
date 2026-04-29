@@ -28,13 +28,9 @@ export default function Content() {
                   </h2>
                   <img src={playcafeLogo} alt="PlayCafe logo" className="h-20 w-20 md:h-24 md:w-24 lg:h-28 lg:w-28 rounded-full object-cover border-2 border-cyan-200 dark:border-cyan-500/40 shrink-0" />
                 </div>
-                <p className="text-lg text-gray-400 dark:text-gray-500" style={{ fontFamily: '"Noto Naskh Arabic", serif' }}>
-                  الشلال
-                </p>
-
               </div>
               <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-5">
-                Your premium lounge in Dortmund. Shisha, cocktails, food &amp; unforgettable nights.
+                Your premium lounge in Essen. Shisha, cocktails, food &amp; unforgettable nights.
               </p>
               {/* Social icons */}
               <div className="flex gap-3">
@@ -107,15 +103,15 @@ export default function Content() {
                 Contact
               </h3>
               <div className="space-y-3 text-sm mb-6">
-                <a href="https://maps.google.com/?q=Sarab+Lounge+Dortmund" target="_blank" rel="noopener noreferrer"
+                <a href="https://maps.google.com/?q=Sarab+Lounge+essen" target="_blank" rel="noopener noreferrer"
                   className="flex items-start gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">
                   <FaMapMarkerAlt className="mt-0.5 shrink-0 text-cyan-500" />
-                  <span>Am Sittardsberg, Dortmund</span>
+                  <span>Kastanienallee 93, 45127 Essen</span>
                 </a>
-                <a href="mailto:info@avalanche-lounge.de"
+                <a href="abod.hajareen@gmail.com"
                   className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">
                   <FaEnvelope className="shrink-0 text-cyan-500" />
-                  <span>info@avalanche-lounge.de</span>
+                  <span>abod.hajareen@gmail.com</span>
                 </a>
               </div>
 
@@ -127,7 +123,7 @@ export default function Content() {
           {/* Bottom bar */}
           <div className="border-t border-gray-100 dark:border-white/5 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-500 dark:text-gray-600 text-xs">
-              © 2025 Avalanche Lounge — الشلال. All rights reserved.
+              © 2026 Avalanche Lounge . All rights reserved.
             </p>
             <div className="flex gap-5 text-xs text-gray-400 dark:text-gray-600">
               <a href="/privacy" className="hover:text-cyan-500 transition-colors">Privacy Policy</a>

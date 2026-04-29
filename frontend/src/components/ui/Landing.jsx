@@ -27,7 +27,7 @@ function Landing() {
           className="absolute right-8 top-1/4 hidden lg:block w-48 rounded-2xl overflow-hidden shadow-2xl border border-white/20">
           <img src={cocktails} alt="" className="w-full h-32 object-cover" />
           <div className="bg-black/80 px-3 py-2">
-            <p className="text-xs text-cyan-400 font-semibold">Signature Cocktails</p>
+            <p className="text-xs text-cyan-400 font-semibold">{t('home.offers.cocktails.title')}</p>
             <p className="text-white text-xs">{t('home.offers.cocktails.tag')}</p>
           </div>
         </motion.div>
@@ -36,7 +36,7 @@ function Landing() {
           className="absolute left-8 bottom-1/4 hidden lg:block w-44 rounded-2xl overflow-hidden shadow-2xl border border-white/20">
           <img src={drinks} alt="" className="w-full h-28 object-cover" />
           <div className="bg-black/80 px-3 py-2">
-            <p className="text-xs text-cyan-400 font-semibold">Premium Shisha</p>
+            <p className="text-xs text-cyan-400 font-semibold">{t('home.offers.shisha.title')}</p>
             <p className="text-white text-xs">{t('home.offers.shisha.tag')}</p>
           </div>
         </motion.div>
@@ -44,7 +44,7 @@ function Landing() {
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <motion.p variants={fadeUp} initial="hidden" animate="visible" custom={0}
             className="text-cyan-400 tracking-[0.4em] text-xs md:text-sm uppercase mb-4 font-medium">
-            Est. 2025 · Dortmund
+            Est. 2026 · Essen
           </motion.p>
           <motion.h1 variants={fadeUp} initial="hidden" animate="visible" custom={1}
             className="text-6xl md:text-[9rem] font-bold text-white leading-none mb-2 tracking-tight" style={{ textShadow: '0 0 80px rgba(6,182,212,0.3)' }}>
@@ -68,9 +68,8 @@ function Landing() {
             </Link>
           </motion.div>
         </div>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
-          <p className="text-gray-400 text-xs tracking-widest uppercase">Scroll</p>
-          <div className="w-px h-10 bg-gradient-to-b from-cyan-400 to-transparent animate-pulse" />
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center z-10">
+          <div className="w-px h-12 bg-gradient-to-b from-cyan-400 to-transparent animate-pulse" />
         </div>
       </section>
 
@@ -135,7 +134,7 @@ function Landing() {
               { img: drinks, ...t('home.offers.shisha', { returnObjects: true }) },
               { img: cocktails, ...t('home.offers.cocktails', { returnObjects: true }) },
               { img: food, ...t('home.offers.food', { returnObjects: true }) },
-            ].map(({ img, title, arabic, desc, tag }, i) => (
+            ].map(({ img, title, desc, tag }, i) => (
               <motion.div key={title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }} viewport={{ once: true }}
                 className="group relative rounded-2xl overflow-hidden h-80 cursor-pointer">
@@ -144,7 +143,6 @@ function Landing() {
                 <div className="absolute inset-x-0 bottom-0 p-6">
                   <span className="text-xs text-cyan-400 font-semibold tracking-wider uppercase">{tag}</span>
                   <h3 className="text-xl font-bold text-white mt-1">{title}</h3>
-                  <p className="text-gray-300 text-xs" style={{ fontFamily: '"Noto Naskh Arabic", serif' }}>{arabic}</p>
                 </div>
               </motion.div>
             ))}

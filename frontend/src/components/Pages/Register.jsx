@@ -75,12 +75,7 @@ function Reservation() {
         >
           Reservation
         </h1>
-        <p
-          className="text-2xl text-gray-500"
-          style={{ fontFamily: '"Noto Naskh Arabic", serif' }}
-        >
-          احجز طاولتك
-        </p>
+
       </div>
 
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-5 gap-10">
@@ -105,18 +100,18 @@ function Reservation() {
                 <FaMapMarkerAlt className="text-cyan-400 mt-1 shrink-0" />
                 <div>
                   <p className="font-medium text-gray-900 dark:text-white">Avalanche Lounge</p>
-                  <p className="text-gray-600 dark:text-gray-400">Am Sittardsberg</p>
-                  <p className="text-gray-600 dark:text-gray-400">Dortmund, Germany</p>
+                  <p className="text-gray-600 dark:text-gray-400">Kastanienallee 93, 45127 </p>
+                  <p className="text-gray-600 dark:text-gray-400">Essen, Germany</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <FaPhone className="text-cyan-400 shrink-0" />
-                <a href="tel:+49" className="hover:text-cyan-400 transition-colors">+49 (0) — — — — — —</a>
+                <a href="tel:+49" className="hover:text-cyan-400 transition-colors">+49 (0)1631937607</a>
               </div>
               <div className="flex items-center gap-3">
                 <FaEnvelope className="text-cyan-400 shrink-0" />
-                <a href="mailto:info@avalanche-lounge.de" className="hover:text-cyan-400 transition-colors">
-                  info@avalanche-lounge.de
+                <a href="mailto:abod.hajareen@gmail.com" className="hover:text-cyan-400 transition-colors">
+                  abod.hajareen@gmail.com
                 </a>
               </div>
             </div>
@@ -143,7 +138,7 @@ function Reservation() {
               ].map(({ day, hours }) => (
                 <div key={day} className="flex justify-between items-center border-b border-white/5 pb-2">
                   <span className="text-gray-600 dark:text-gray-400">{day}</span>
-                  <span className="text-white font-medium">{hours}</span>
+                  <span className="text-gray-900 dark:text-white font-medium">{hours}</span>
                 </div>
               ))}
             </div>
@@ -190,7 +185,7 @@ function Reservation() {
                     name="firstName"
                     value={form.firstName}
                     onChange={handleChange}
-                    placeholder="Abed"
+                    placeholder=""
                     required
                   />
                 </div>
@@ -201,7 +196,7 @@ function Reservation() {
                     name="lastName"
                     value={form.lastName}
                     onChange={handleChange}
-                    placeholder="Al-Sayed"
+                    placeholder=""
                     required
                   />
                 </div>
@@ -219,9 +214,9 @@ function Reservation() {
                 >
                   <option value="" disabled>{t("reservation.guestsPlaceholder")}</option>
                   {[1,2,3,4,5,6,7,8,9,10].map(n => (
-                    <option key={n} value={n} style={{ background: '#0d1a2e' }}>{n} {n === 1 ? 'Person' : 'People'}</option>
+                    <option key={n} value={n} style={{ background: '#ffffff', color: '#111827' }}>{n} {n === 1 ? 'Person' : 'People'}</option>
                   ))}
-                  <option value="10+" style={{ background: '#0d1a2e' }}>10+ (Large group)</option>
+                  <option value="10+" style={{ background: '#ffffff', color: '#111827' }}>10+ (Large group)</option>
                 </select>
               </div>
 
