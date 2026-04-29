@@ -84,7 +84,7 @@ const FeedbackForm = () => {
   };
 
   return (
-    <div className="bg-amber-100 dark:bg-black h-full py-16 px-4 sm:px-6 lg:px-8">
+    <div className="bg-white dark:bg-gray-950 h-full py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.div
           ref={ref}
@@ -105,12 +105,12 @@ const FeedbackForm = () => {
                 src={chess}
                 alt="Chess"
                 loading="lazy"
-                className="md:p-10 p-5 object-contain bg-[#004D43] dark:bg-green-500 rounded-full shadow-2xl"
+                className="md:p-10 p-5 object-contain bg-blue-600 dark:bg-cyan-600 rounded-full shadow-2xl"
               />
             </div>
           </div>
 
-          <div className="bg-[#004D43] dark:bg-green-500 rounded-xl p-3 pt-4 h-fit">
+          <div className="bg-blue-600 dark:bg-cyan-600 rounded-xl p-3 pt-4 h-fit">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <input
@@ -120,7 +120,7 @@ const FeedbackForm = () => {
                   placeholder="Name"
                   onChange={(e) => setName(e.target.value)}
                   required
-                  className="mt-1 block w-full border border-gray-300 dark:bg-black rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#004D43] focus:border-[#004D43]"
+                  className="mt-1 block w-full border border-gray-300 dark:bg-black rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
               <div>
@@ -131,7 +131,7 @@ const FeedbackForm = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="mt-1 block w-full border border-gray-300 dark:bg-black rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#004D43] focus:border-[#004D43]"
+                  className="mt-1 block w-full border border-gray-300 dark:bg-black rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
               <div>
@@ -142,7 +142,7 @@ const FeedbackForm = () => {
                   value={feedback}
                   onChange={(e) => setFeedback(e.target.value)}
                   required
-                  className="mt-1 block w-full border dark:bg-black border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#004D43] focus:border-[#004D43] resize-none"
+                  className="mt-1 block w-full border dark:bg-black border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 resize-none"
                 ></textarea>
               </div>
               <div className="flex flex-row justify-center gap-2">
@@ -176,7 +176,7 @@ const FeedbackForm = () => {
               <div>
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md dark:bg-green-700 shadow-sm text-sm font-medium text-white bg-[#09342e] hover:bg-[#072d28] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#004D43]"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md dark:bg-cyan-700 shadow-sm text-sm font-medium text-white bg-[#09342e] hover:bg-[#072d28] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#004D43]"
                   disabled={isLoading} // Disable the button while loading
                 >
                   {isLoading ? 'Submitting...' : 'Submit Feedback'}
