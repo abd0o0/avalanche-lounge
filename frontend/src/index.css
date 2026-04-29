@@ -51,3 +51,42 @@ html.dark {
   background-color: #1a202c; /* Dark slate background */
   color: #f0e7db; /* Light text */
 }
+/* Avalanche Lounge — dark menu pages */
+.avalanche-page {
+  @apply bg-gray-50 dark:bg-gray-950;
+  min-height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.avalanche-page-cover {
+  @apply bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-950 dark:to-blue-950;
+}
+
+.avalanche-section-bg {
+  @apply bg-white dark:bg-gray-900;
+}
+
+.avalanche-border {
+  @apply border-gray-200 dark:border-white/10;
+}
+
+.avalanche-text-primary {
+  @apply text-gray-900 dark:text-white;
+}
+
+.avalanche-text-secondary {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.avalanche-text-price {
+  @apply text-blue-600 dark:text-cyan-400;
+}
+
+.avalanche-card {
+  @apply bg-white dark:bg-blue-950/40 border border-gray-200 dark:border-white/10 rounded-2xl;
+}
+
+.avalanche-hero {
+  @apply bg-gradient-to-b from-gray-900 via-blue-950 to-gray-900;
+}

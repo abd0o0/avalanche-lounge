@@ -24,10 +24,7 @@ function Menu() {
   }, []);
 
   return (
-    <div
-      className="w-full min-h-screen"
-      style={{ background: 'linear-gradient(160deg, #050810 0%, #0a1628 50%, #050810 100%)' }}
-    >
+    <div className="w-full min-h-screen bg-white dark:bg-gray-950 transition-colors duration-300">
       {/* Hero */}
       <div className="pt-28 pb-10 px-6 text-center">
         <h1
@@ -46,7 +43,7 @@ function Menu() {
         >
           قائمتنا
         </p>
-        <p className="text-gray-400 text-base max-w-xl mx-auto">
+        <p className="text-gray-500 dark:text-gray-400 text-base max-w-xl mx-auto">
           Cocktails, mocktails, coffee, food — and of course, premium shisha.
         </p>
       </div>
@@ -58,7 +55,7 @@ function Menu() {
           className={`px-6 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 ${
             activeTab === 'flipmenu'
               ? 'bg-gradient-to-r from-blue-500 to-cyan-600 text-white shadow-lg shadow-blue-500/20'
-              : 'bg-white/5 text-gray-400 hover:text-white border border-white/10 hover:border-cyan-500/40'
+              : 'bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white border border-gray-200 dark:border-white/10'
           }`}
         >
           🍹 Drinks & Food
@@ -68,7 +65,7 @@ function Menu() {
           className={`px-6 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 ${
             activeTab === 'shisha'
               ? 'bg-gradient-to-r from-blue-500 to-cyan-600 text-white shadow-lg shadow-blue-500/20'
-              : 'bg-white/5 text-gray-400 hover:text-white border border-white/10 hover:border-cyan-500/40'
+              : 'bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white border border-gray-200 dark:border-white/10'
           }`}
         >
           💨 Shisha
@@ -79,8 +76,8 @@ function Menu() {
       {activeTab === 'flipmenu' && (
         <div className="w-full">
           <div className="flex flex-col items-center mb-4">
-            <p className="text-gray-500 text-sm tracking-widest uppercase mb-2">Flip through the menu</p>
-            <GiArrowDunk size={40} className="text-cyan-500" />
+            <p className="text-gray-500 dark:text-gray-500 text-sm tracking-widest uppercase mb-2">Flip through the menu</p>
+            <GiArrowDunk size={40} className="text-blue-500 dark:text-cyan-500" />
           </div>
           <div className="w-full flex justify-center mb-20">
             <Mybook />
@@ -117,31 +114,30 @@ function Menu() {
             {shishaFlavors.map((flavor) => (
               <div
                 key={flavor.name}
-                className="group relative border border-gray-700 hover:border-cyan-500 rounded-2xl p-5 transition-all duration-300 hover:shadow-[0_0_30px_rgba(6,182,212,0.12)] hover:-translate-y-1"
-                style={{ background: 'rgba(13,26,46,0.8)' }}
+                className="group relative bg-white dark:bg-blue-950/40 border border-gray-200 dark:border-gray-700 hover:border-cyan-500 rounded-2xl p-5 transition-all duration-300 hover:shadow-[0_0_30px_rgba(6,182,212,0.12)] hover:-translate-y-1"
               >
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative z-10">
                   <div className="flex justify-between items-start mb-2">
-                    <span className="text-xs font-bold tracking-widest text-cyan-400 uppercase">Shisha</span>
-                    <span className="text-lg font-bold text-white">{flavor.price}</span>
+                    <span className="text-xs font-bold tracking-widest text-blue-500 dark:text-cyan-400 uppercase">Shisha</span>
+                    <span className="text-lg font-bold text-gray-900 dark:text-white">{flavor.price}</span>
                   </div>
-                  <h3 className="text-base font-bold text-white mb-1">{flavor.name}</h3>
+                  <h3 className="text-base font-bold text-gray-900 dark:text-white mb-1">{flavor.name}</h3>
                   <p
                     className="text-gray-400 text-sm mb-2"
                     style={{ fontFamily: '"Noto Naskh Arabic", serif', direction: 'rtl' }}
                   >
                     {flavor.arabic}
                   </p>
-                  <p className="text-gray-500 text-xs leading-relaxed">{flavor.description}</p>
+                  <p className="text-gray-500 dark:text-gray-500 text-xs leading-relaxed">{flavor.description}</p>
                 </div>
               </div>
             ))}
           </div>
 
           <div className="mt-10 text-center">
-            <div className="inline-block bg-blue-900/30 border border-blue-700/40 rounded-xl px-8 py-4">
-              <p className="text-blue-300 text-sm">
+            <div className="inline-block bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700/40 rounded-xl px-8 py-4">
+              <p className="text-blue-700 dark:text-blue-300 text-sm">
                 🪬 All prices include VAT &nbsp;·&nbsp; Coal refreshes included &nbsp;·&nbsp; Private shisha bookings available
               </p>
             </div>

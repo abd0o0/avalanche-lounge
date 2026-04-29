@@ -15,11 +15,8 @@ import ThankPage from './MenuPages.jsx/ThankPage/ThankPage.jsx';
 
 // Import other components and assets as before
 
-const BgTextureStyle = {
-  background: 'linear-gradient(160deg, #050810 0%, #0a1628 50%, #050810 100%)',
-  minHeight: '100vh',
-  width: '100%',
-};
+// Background is controlled by Tailwind dark: classes on the wrapper div
+const BgTextureStyle = {};
 
 function MyBook() {
   const [dimensions, setDimensions] = useState({ width: 600, height: 700 });
@@ -46,7 +43,7 @@ function MyBook() {
   return (
     <div
       style={BgTextureStyle}
-      className=" mt-2 mb-20 overflow-hidden w-full h-full flex justify-center items-center "
+      className="mt-2 mb-20 overflow-hidden w-full h-full flex justify-center items-center bg-gray-100 dark:bg-gray-950 transition-colors duration-300"
     >
       <HTMLFlipBook
         width={dimensions.width}

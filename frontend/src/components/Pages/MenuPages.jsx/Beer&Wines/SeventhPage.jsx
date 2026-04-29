@@ -1,57 +1,58 @@
 import React from 'react';
-
-const pageStyle = {
-  background: 'linear-gradient(160deg, #0a0a0f 0%, #0d1a2e 100%)',
-  height: '100%',
-  width: '100%',
-  fontFamily: 'Poppins, sans-serif',
-  color: '#f1f5f9',
-};
+import wineBg from '../../../../assets/avalanche/wine.jpg';
+import beerBg from '../../../../assets/avalanche/beer.jpg';
 
 const MenuItem = ({ name, arabic, price, desc }) => (
-  <div className="flex justify-between items-start border-b border-white/10 pb-2 mb-2">
+  <div className="flex justify-between items-start border-b avalanche-border pb-1.5 mb-1.5">
     <div className="flex-1 pr-2">
-      <div className="flex items-baseline gap-2">
-        <span className="font-semibold text-xs md:text-sm text-white">{name}</span>
+      <div className="flex items-baseline gap-1.5 flex-wrap">
+        <span className="font-semibold text-xs md:text-sm avalanche-text-primary">{name}</span>
         {arabic && (
-          <span className="text-gray-400 text-xs" style={{ fontFamily: '"Noto Naskh Arabic", serif' }}>
-            {arabic}
-          </span>
+          <span className="avalanche-text-secondary text-xs" style={{ fontFamily: '"Noto Naskh Arabic", serif' }}>{arabic}</span>
         )}
       </div>
-      {desc && <p className="text-gray-500 text-xs">{desc}</p>}
+      {desc && <p className="avalanche-text-secondary text-xs">{desc}</p>}
     </div>
-    <span className="text-cyan-400 font-semibold text-xs md:text-sm whitespace-nowrap">{price}</span>
+    <span className="avalanche-text-price font-bold text-xs md:text-sm whitespace-nowrap">{price}</span>
   </div>
 );
 
 const SectionTitle = ({ en, ar }) => (
-  <div className="text-center mb-3">
-    <h2 className="text-lg md:text-2xl font-bold"
-      style={{ background: 'linear-gradient(90deg, #67e8f9, #3b82f6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-      {en}
-    </h2>
-    {ar && <p className="text-gray-500 text-xs" style={{ fontFamily: '"Noto Naskh Arabic", serif' }}>{ar}</p>}
-    <div className="w-10 h-px bg-cyan-500/50 mx-auto mt-1" />
+  <div className="text-center mb-2">
+    <h2 className="text-sm md:text-lg font-bold text-blue-600 dark:text-cyan-400 uppercase tracking-wider">{en}</h2>
+    {ar && <p className="avalanche-text-secondary text-xs" style={{ fontFamily: '"Noto Naskh Arabic", serif' }}>{ar}</p>}
+    <div className="w-8 h-px bg-blue-400 dark:bg-cyan-500 mx-auto mt-1" />
   </div>
 );
 
 const SeventhPage = () => (
-  <div style={pageStyle} className="p-4 md:p-8 overflow-hidden">
-    <SectionTitle en="BEER" ar="بيرة" />
-    <MenuItem name="Becks (0.33L)" price="€3.50" desc="German lager" />
-    <MenuItem name="Heineken (0.33L)" price="€3.50" />
-    <MenuItem name="Corona (0.33L)" price="€4.00" desc="With lime" />
-    <MenuItem name="Craft Beer (0.33L)" price="€5.00" desc="Rotating local selection" />
-    <MenuItem name="Non-Alcoholic Beer" arabic="بيرة بلا كحول" price="€3.50" />
+  <div className="avalanche-page h-full">
+    {/* Split header image */}
+    <div className="relative h-20 md:h-28 overflow-hidden flex">
+      <img src={beerBg} alt="Beer" className="w-1/2 h-full object-cover" />
+      <img src={wineBg} alt="Wine" className="w-1/2 h-full object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/75 flex items-end justify-center pb-2">
+        <h1 className="text-white font-bold text-lg md:text-2xl tracking-widest uppercase drop-shadow">🍺 Beer & 🍷 Wine</h1>
+      </div>
+    </div>
 
-    <div className="mt-3">
-      <SectionTitle en="WINES" ar="نبيذ" />
-      <MenuItem name="House White (0.2L)" arabic="نبيذ أبيض" price="€5.50" />
-      <MenuItem name="House Red (0.2L)" arabic="نبيذ أحمر" price="€5.50" />
-      <MenuItem name="Rosé (0.2L)" arabic="نبيذ روزيه" price="€5.50" />
-      <MenuItem name="Prosecco (glass)" price="€6.00" desc="Italian sparkling" />
-      <MenuItem name="Aperol Spritz" price="€7.50" desc="Aperol, prosecco, orange" />
+    <div className="p-3 md:p-5">
+      <div className="mb-3">
+        <SectionTitle en="Beer" ar="بيرة" />
+        <MenuItem name="Becks (0.33L)" price="€3.50" desc="German lager" />
+        <MenuItem name="Heineken (0.33L)" price="€3.50" />
+        <MenuItem name="Corona (0.33L)" price="€4.00" desc="With lime" />
+        <MenuItem name="Craft Beer (0.33L)" price="€5.00" desc="Rotating local selection" />
+        <MenuItem name="Non-Alcoholic Beer" arabic="بلا كحول" price="€3.50" />
+      </div>
+      <div>
+        <SectionTitle en="Wine & Sparkling" ar="نبيذ" />
+        <MenuItem name="White Wine (0.2L)" arabic="أبيض" price="€5.50" />
+        <MenuItem name="Red Wine (0.2L)" arabic="أحمر" price="€5.50" />
+        <MenuItem name="Rosé (0.2L)" arabic="روزيه" price="€5.50" />
+        <MenuItem name="Prosecco (glass)" price="€6.00" />
+        <MenuItem name="Aperol Spritz" price="€7.50" />
+      </div>
     </div>
   </div>
 );

@@ -54,12 +54,12 @@ function Reservation() {
   };
 
   const inputClass =
-    'w-full bg-white/5 border border-white/10 focus:border-cyan-500 outline-none rounded-xl px-4 py-3 text-white placeholder-gray-500 text-sm transition-all duration-200 focus:ring-1 focus:ring-cyan-500/50';
+    'w-full bg-white dark:bg-white/5 border border-gray-300 dark:border-white/10 focus:border-blue-500 dark:focus:border-cyan-500 outline-none rounded-xl px-4 py-3 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-sm transition-all duration-200';
 
   return (
     <div
-      className="min-h-screen w-full pt-24 pb-20"
-      style={{ background: 'linear-gradient(160deg, #050810 0%, #0a1628 60%, #050810 100%)' }}
+      className="min-h-screen w-full pt-24 pb-20 bg-white dark:bg-gray-950 transition-colors duration-300"
+      
     >
       {/* Page title */}
       <div className="text-center mb-12 px-4">
@@ -87,7 +87,7 @@ function Reservation() {
         <div className="lg:col-span-2 flex flex-col gap-6">
 
           {/* Contact */}
-          <div className="rounded-2xl border border-white/10 p-6" style={{ background: 'rgba(13,26,46,0.7)' }}>
+          <div className="rounded-2xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-blue-950/40 p-6">
             <h3
               className="text-lg font-bold mb-4"
               style={{
@@ -102,9 +102,9 @@ function Reservation() {
               <div className="flex items-start gap-3">
                 <FaMapMarkerAlt className="text-cyan-400 mt-1 shrink-0" />
                 <div>
-                  <p className="font-medium text-white">Avalanche Lounge</p>
-                  <p className="text-gray-400">Am Sittardsberg</p>
-                  <p className="text-gray-400">Dortmund, Germany</p>
+                  <p className="font-medium text-gray-900 dark:text-white">Avalanche Lounge</p>
+                  <p className="text-gray-600 dark:text-gray-400">Am Sittardsberg</p>
+                  <p className="text-gray-600 dark:text-gray-400">Dortmund, Germany</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -121,7 +121,7 @@ function Reservation() {
           </div>
 
           {/* Opening hours */}
-          <div className="rounded-2xl border border-white/10 p-6" style={{ background: 'rgba(13,26,46,0.7)' }}>
+          <div className="rounded-2xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-blue-950/40 p-6">
             <h3
               className="text-lg font-bold mb-4 flex items-center gap-2"
               style={{
@@ -140,7 +140,7 @@ function Reservation() {
                 { day: 'Sunday', hours: '16:00 – 02:00' },
               ].map(({ day, hours }) => (
                 <div key={day} className="flex justify-between items-center border-b border-white/5 pb-2">
-                  <span className="text-gray-400">{day}</span>
+                  <span className="text-gray-600 dark:text-gray-400">{day}</span>
                   <span className="text-white font-medium">{hours}</span>
                 </div>
               ))}
@@ -164,8 +164,8 @@ function Reservation() {
 
         {/* RIGHT — Reservation form */}
         <div className="lg:col-span-3">
-          <div className="rounded-2xl border border-white/10 p-6 md:p-8" style={{ background: 'rgba(13,26,46,0.7)' }}>
-            <h2 className="text-2xl font-bold text-white mb-6">Reserve a Table</h2>
+          <div className="rounded-2xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-blue-950/40 p-6 md:p-8">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Reserve a Table</h2>
 
             {status === 'success' && (
               <div className="mb-6 p-4 rounded-xl bg-green-900/30 border border-green-500/40 text-green-300 text-sm">
@@ -182,7 +182,7 @@ function Reservation() {
               {/* Name row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs text-gray-400 mb-1 uppercase tracking-wider">First Name *</label>
+                  <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">First Name *</label>
                   <input
                     className={inputClass}
                     name="firstName"
@@ -193,7 +193,7 @@ function Reservation() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Last Name *</label>
+                  <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">Last Name *</label>
                   <input
                     className={inputClass}
                     name="lastName"
@@ -207,7 +207,7 @@ function Reservation() {
 
               {/* Guests */}
               <div>
-                <label className="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Number of Guests *</label>
+                <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">Number of Guests *</label>
                 <select
                   className={inputClass}
                   name="guests"
@@ -226,7 +226,7 @@ function Reservation() {
               {/* Date & Time row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Date *</label>
+                  <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">Date *</label>
                   <input
                     className={inputClass}
                     type="date"
@@ -239,7 +239,7 @@ function Reservation() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Time *</label>
+                  <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">Time *</label>
                   <input
                     className={inputClass}
                     type="time"
@@ -254,7 +254,7 @@ function Reservation() {
 
               {/* Email */}
               <div>
-                <label className="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Email *</label>
+                <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">Email *</label>
                 <input
                   className={inputClass}
                   type="email"
@@ -268,7 +268,7 @@ function Reservation() {
 
               {/* Message */}
               <div>
-                <label className="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Message / Special Requests</label>
+                <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">Message / Special Requests</label>
                 <textarea
                   className={`${inputClass} resize-none`}
                   name="message"
@@ -286,7 +286,7 @@ function Reservation() {
                 className="w-full py-3.5 rounded-xl font-semibold text-white text-sm tracking-wide transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
                 style={{
                   background: loading
-                    ? 'rgba(59,130,246,0.4)'
+                    ? 'rgba(59,130,246,0.5)'
                     : 'linear-gradient(135deg, #3b82f6, #06b6d4)',
                   boxShadow: loading ? 'none' : '0 0 20px rgba(6,182,212,0.2)',
                 }}
