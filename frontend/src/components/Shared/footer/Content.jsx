@@ -201,8 +201,6 @@ const Nav = () => {
     { name: 'Events', link: '/events' },
     { name: 'Menu', link: '/menu' },
     { name: 'Reservation', link: '/reservation' },
-    { name: 'Shisha', link: '/shisha' },
-    { name: 'About', link: '/about' },
   ];
 
   const socialLinks = [

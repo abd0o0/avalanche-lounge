@@ -1,94 +1,155 @@
-/* eslint-disable prettier/prettier */
-// eslint-disable-next-line prettier/prettier
-import React , { useEffect, useState } from 'react';
-
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Mybook from './MyBook';
-import TodaysSpecial from './TodaysSpecial';
 import { GiArrowDunk } from 'react-icons/gi';
-import Cafe3dImg from '../../assets/Menu_assets/mega-creator.png';
 import MainHOC from '../MainHOC';
-const parallaxVariants = {
-  initial: { scale: 1 },
-  animate: { scale: 1.05 },
-};
 
-const transition = {
-  type: 'spring',
-  stiffness: 200,
-  damping: 10,
-};
+// Shisha flavors inline
+const shishaFlavors = [
+  { name: 'Double Apple', arabic: 'تفاحتان', description: 'Classic sweet apple blend — our bestseller.', price: '€14' },
+  { name: 'Grape Mint', arabic: 'عنب بالنعناع', description: 'Fresh grape with cool mint finish.', price: '€14' },
+  { name: 'Watermelon Ice', arabic: 'بطيخ بالثلج', description: 'Chilled watermelon with icy freshness.', price: '€15' },
+  { name: 'Blue Mist', arabic: 'ضباب أزرق', description: 'Blueberry & anise — smooth and deep.', price: '€15' },
+  { name: 'Lemon Mint', arabic: 'ليمون بالنعناع', description: 'Zesty citrus with a minty punch.', price: '€14' },
+  { name: 'Rose Gold', arabic: 'ورد ذهبي', description: 'Floral rose with a hint of vanilla.', price: '€16' },
+  { name: 'Guava Passion', arabic: 'جوافة وباشن', description: 'Tropical guava & passion fruit.', price: '€16' },
+  { name: 'Melon Breeze', arabic: 'نسيم البطيخ', description: 'Light honeydew melon, smooth smoke.', price: '€14' },
+];
 
-function ParallaxImage() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e) => {
-    const { clientX, clientY } = e;
-    setMousePosition({ x: clientX, y: clientY });
-  };
-
-  const parallaxEffect = {
-    x: mousePosition.x / 30,
-    y: mousePosition.y / 30,
-  };
+function Menu() {
+  const [activeTab, setActiveTab] = useState('flipmenu');
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <>
-      <div
-        className="w-full h-auto bg-amber-100 dark:bg-black items-center justify-center overflow-hidden"
-        onMouseMove={handleMouseMove}
-      >
-        <div className="flex md:flex-row flex-col items-center justify-between mt-24 mb-20">
-          <div className="w-3/4 pl-8 text-left animate-fadeIn">
-            <h1 className="md:text-7xl text-4xl text-black dark:text-white font-bold font-mono mb-4">
-              Discover Avalanche
-            </h1>
-            <p className="md:text-3xl text-xl font-mono mb-8 dark:text-gray-400">
-              Explore our menu — shisha, cocktails, food &amp; more
+    <div
+      className="w-full min-h-screen"
+      style={{ background: 'linear-gradient(160deg, #050810 0%, #0a1628 50%, #050810 100%)' }}
+    >
+      {/* Hero */}
+      <div className="pt-28 pb-10 px-6 text-center">
+        <h1
+          className="text-5xl md:text-8xl font-bold mb-2"
+          style={{
+            background: 'linear-gradient(135deg, #67e8f9, #3b82f6, #67e8f9)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+          }}
+        >
+          Our Menu
+        </h1>
+        <p
+          className="text-2xl md:text-4xl text-gray-500 mb-6"
+          style={{ fontFamily: '"Noto Naskh Arabic", serif' }}
+        >
+          قائمتنا
+        </p>
+        <p className="text-gray-400 text-base max-w-xl mx-auto">
+          Cocktails, mocktails, coffee, food — and of course, premium shisha.
+        </p>
+      </div>
+
+      {/* Tab switcher */}
+      <div className="flex justify-center gap-4 px-4 mb-8">
+        <button
+          onClick={() => setActiveTab('flipmenu')}
+          className={`px-6 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 ${
+            activeTab === 'flipmenu'
+              ? 'bg-gradient-to-r from-blue-500 to-cyan-600 text-white shadow-lg shadow-blue-500/20'
+              : 'bg-white/5 text-gray-400 hover:text-white border border-white/10 hover:border-cyan-500/40'
+          }`}
+        >
+          🍹 Drinks & Food
+        </button>
+        <button
+          onClick={() => setActiveTab('shisha')}
+          className={`px-6 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 ${
+            activeTab === 'shisha'
+              ? 'bg-gradient-to-r from-blue-500 to-cyan-600 text-white shadow-lg shadow-blue-500/20'
+              : 'bg-white/5 text-gray-400 hover:text-white border border-white/10 hover:border-cyan-500/40'
+          }`}
+        >
+          💨 Shisha
+        </button>
+      </div>
+
+      {/* Drinks & Food Flip Book */}
+      {activeTab === 'flipmenu' && (
+        <div className="w-full">
+          <div className="flex flex-col items-center mb-4">
+            <p className="text-gray-500 text-sm tracking-widest uppercase mb-2">Flip through the menu</p>
+            <GiArrowDunk size={40} className="text-cyan-500" />
+          </div>
+          <div className="w-full flex justify-center mb-20">
+            <Mybook />
+          </div>
+        </div>
+      )}
+
+      {/* Shisha Tab */}
+      {activeTab === 'shisha' && (
+        <div className="max-w-6xl mx-auto px-4 pb-20">
+          <div className="text-center mb-10">
+            <h2
+              className="text-3xl md:text-5xl font-bold mb-2"
+              style={{
+                background: 'linear-gradient(90deg, #67e8f9, #3b82f6)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              Shisha Menu
+            </h2>
+            <p
+              className="text-2xl text-gray-500"
+              style={{ fontFamily: '"Noto Naskh Arabic", serif' }}
+            >
+              قائمة الشيشة
+            </p>
+            <p className="text-gray-400 text-sm mt-3 max-w-md mx-auto">
+              Premium tobacco & coal. All shisha orders include coal refreshes and your choice of mouthpiece.
             </p>
           </div>
-          <div className="w-full flex justify-center items-center rounded-e-full z-1 shadow-lg bg-amber-200 dark:bg-amber-900 animate-slideIn">
-            <motion.img
-              src={Cafe3dImg}
-              alt="3D Coffee Shop"
-              className="cursor-pointer"
-              style={parallaxEffect}
-              variants={parallaxVariants}
-              initial="initial"
-              animate="animate"
-              whileHover={{ scale: 1.3 }}
-              transition={transition}
-            />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {shishaFlavors.map((flavor) => (
+              <div
+                key={flavor.name}
+                className="group relative border border-gray-700 hover:border-cyan-500 rounded-2xl p-5 transition-all duration-300 hover:shadow-[0_0_30px_rgba(6,182,212,0.12)] hover:-translate-y-1"
+                style={{ background: 'rgba(13,26,46,0.8)' }}
+              >
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10">
+                  <div className="flex justify-between items-start mb-2">
+                    <span className="text-xs font-bold tracking-widest text-cyan-400 uppercase">Shisha</span>
+                    <span className="text-lg font-bold text-white">{flavor.price}</span>
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-1">{flavor.name}</h3>
+                  <p
+                    className="text-gray-400 text-sm mb-2"
+                    style={{ fontFamily: '"Noto Naskh Arabic", serif', direction: 'rtl' }}
+                  >
+                    {flavor.arabic}
+                  </p>
+                  <p className="text-gray-500 text-xs leading-relaxed">{flavor.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <div className="inline-block bg-blue-900/30 border border-blue-700/40 rounded-xl px-8 py-4">
+              <p className="text-blue-300 text-sm">
+                🪬 All prices include VAT &nbsp;·&nbsp; Coal refreshes included &nbsp;·&nbsp; Private shisha bookings available
+              </p>
+            </div>
           </div>
         </div>
-        <div className="flex flex-col items-center mb-2">
-          <h1 className="text-5xl md:text-9xl font-roboto dark:text-gray-50 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">Our Menu</h1>
-          <GiArrowDunk size={60} className="mt-2 text-orange-400" />
-        </div>
-        {/* <div className="w-full md:flex md:items-center md:justify-center">
-          <Mybook />
-        </div>
-        <TodaysSpecial /> */}
-        <div className="w-full md:flex md:items-center md:justify-center mb-20">
-          {' '}
-          {/* Adjust this container */}
-          <Mybook />
-        </div>
-        <div
-          className="w-full md:flex md:items-center md:justify-center "
-          style={{ paddingBottom: '80px' }}
-        >
-          {' '}
-          {/* Add bottom padding here */}
-          <TodaysSpecial />
-        </div>
-      </div>
-    </>
+      )}
+    </div>
   );
 }
 
-export default MainHOC(ParallaxImage);
+export default MainHOC(Menu);

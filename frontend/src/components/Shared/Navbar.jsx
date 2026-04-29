@@ -22,9 +22,6 @@ const Navbar = () => {
     { name: 'EVENTS', path: '/events' },
     { name: 'MENU', path: '/menu' },
     { name: 'RESERVATION', path: '/reservation' },
-    { name: 'SHISHA', path: '/shisha' },
-    { name: 'MEMBERSHIP', path: '/membership' },
-    { name: 'PROFILE', path: '/dashboard' },
   ];
 
   useEffect(() => {

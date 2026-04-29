@@ -62,7 +62,6 @@ const router = createBrowserRouter(
 
       {/* <Route path="/help" element={<HelpAndSupport />} /> */}
       <Route path="/contributors" element={<Contributors />} />
-      <Route path="/shisha" element={<Shisha />} />
     </Route>
   )
 );
