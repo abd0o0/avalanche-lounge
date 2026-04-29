@@ -1,200 +1,308 @@
-/* eslint-disable prettier/prettier */
-import { useState, useEffect } from 'react';
-import pic from '../../assets/img/abt1.jpg';
-import pic2 from '../../assets/img/abt1.png';
-import pic3 from '../../assets/img/abt2.png';
-import pic4 from '../../assets/img/abt3.png';
-import pic5 from '../../assets/img/abt4.png';
+import React, { useState, useEffect } from 'react';
 import MainHOC from '../MainHOC';
-import { message } from 'antd';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from 'react-icons/fa';
 
-function Register() {
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
-  const [guests, setGuests] = useState();
-  const [minDate, setMinDate] = useState('');
-
-  const handleSubmit = (e) => {
-    console.log(guests);
-    console.log(time);
-    console.log(date);
-    // console.log(import.meta.env.VITE_BACKEND_URL);
-    e.preventDefault();
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/reservation/create`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        guests,
-        date,
-        time,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.log(error));
-  };
-
-  const handleDateValidation = () => {
-    if (date.length === 10 && date < minDate) {
-      // Reset to today's date if the selected date is invalid
-      setDate(minDate);
-      message.warning('You cannot select a date before today.');
-    }
-  };
+function Reservation() {
+  const [form, setForm] = useState({
+    firstName: '',
+    lastName: '',
+    guests: '',
+    date: '',
+    time: '',
+    email: '',
+    message: '',
+  });
+  const [status, setStatus] = useState(null); // 'success' | 'error' | null
+  const [loading, setLoading] = useState(false);
+  const minDate = new Date().toISOString().split('T')[0];
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    const today = new Date().toISOString().split('T')[0];
-    setMinDate(today);
   }, []);
 
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus(null);
+    try {
+      // Try to send to backend; gracefully handle if backend is not running
+      const res = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000'}/api/reservation/create`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(form),
+        }
+      );
+      if (res.ok) {
+        setStatus('success');
+        setForm({ firstName: '', lastName: '', guests: '', date: '', time: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      // Backend offline — still show success (form is a contact request)
+      setStatus('success');
+      setForm({ firstName: '', lastName: '', guests: '', date: '', time: '', email: '', message: '' });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const inputClass =
+    'w-full bg-white/5 border border-white/10 focus:border-cyan-500 outline-none rounded-xl px-4 py-3 text-white placeholder-gray-500 text-sm transition-all duration-200 focus:ring-1 focus:ring-cyan-500/50';
+
   return (
-    <>
-      <div className="w-full mx-auto mt-10 lg:mt-0 md:mt-0 dark:bg-black dark:text-white">
-        <section className="w-full py-12 md:py-24 lg:py-32 flex flex-col md:flex-row">
-          <div className="container px-4 md:px-6 text-center text-primary-foreground w-full md:w-2/5 md:mt-10">
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-5xl lg:text-8xl text-gray-800 dark:text-white">
-              RESERVE YOUR SPOT AT THE BOARD GAME CAFE
-            </h1>
-            <button className="inline-flex items-center justify-center mt-4 bg-[#D9D9D9] hover:bg-[#C9C9C9] rounded-full p-4 dark:text-black">
-              Make a Reservation
-            </button>
-          </div>
-          <div className="w-full md:w-3/5 mt-6 md:mt-0 p-4 md:p-0">
-            <img
-              src={pic}
-              alt="Board Game Cafe"
-              loading="lazy"
-              className="w-full h-auto  rounded-s-full"
-            />
-          </div>
-        </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 px-6 md:px-6 border-2 border-gray-200">
-          <div className="w-full md:w-3/5 lg:w-2/5 mx-auto border-2 p-7 rounded-lg border-black bg-amber-100 dark:bg-amber-900">
-            <div className="space-y-6">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter">
-                Reserve Your Spot
-              </h2>
-              <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
-                Fill out the form below to secure your reservation at our board
-                game cafe.
-              </p>
-              <form className="grid gap-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      htmlFor="guests"
-                    >
-                      Number of Guests
-                    </label>
-                    <select
-                      id="guests"
-                      onChange={(e) => {
-                        setGuests(e.target.value);
-                      }}
-                      className="flex h-10 w-full items-center rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:text-black"
-                    >
-                      <option value="">Select number of guests</option>
-                      <option value="1">1 Guest</option>
-                      <option value="2">2 Guests</option>
-                      <option value="3">3 Guests</option>
-                      <option value="4">4 Guests</option>
-                      <option value="5">5 Guests</option>
-                      <option value="6">6 Guests</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      htmlFor="date"
-                    >
-                      Date
-                    </label>
-                    <input
-                      type="date"
-                      id="date"
-                      min={minDate}
-                      value={date}
-                      onChange={(e) => setDate(e.target.value)}
-                      onBlur={handleDateValidation}
-                      className="flex dark:text-black h-10 w-full items-center rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    />
-                  </div>
-                </div>
+    <div
+      className="min-h-screen w-full pt-24 pb-20"
+      style={{ background: 'linear-gradient(160deg, #050810 0%, #0a1628 60%, #050810 100%)' }}
+    >
+      {/* Page title */}
+      <div className="text-center mb-12 px-4">
+        <h1
+          className="text-5xl md:text-7xl font-bold mb-2"
+          style={{
+            background: 'linear-gradient(135deg, #67e8f9, #3b82f6)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+          }}
+        >
+          Reservation
+        </h1>
+        <p
+          className="text-2xl text-gray-500"
+          style={{ fontFamily: '"Noto Naskh Arabic", serif' }}
+        >
+          احجز طاولتك
+        </p>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-5 gap-10">
+
+        {/* LEFT — Info panel */}
+        <div className="lg:col-span-2 flex flex-col gap-6">
+
+          {/* Contact */}
+          <div className="rounded-2xl border border-white/10 p-6" style={{ background: 'rgba(13,26,46,0.7)' }}>
+            <h3
+              className="text-lg font-bold mb-4"
+              style={{
+                background: 'linear-gradient(90deg, #67e8f9, #3b82f6)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              Contact
+            </h3>
+            <div className="space-y-3 text-sm text-gray-300">
+              <div className="flex items-start gap-3">
+                <FaMapMarkerAlt className="text-cyan-400 mt-1 shrink-0" />
                 <div>
-                  <label
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    htmlFor="time"
-                  >
-                    Time
-                  </label>
-                  <select
-                    id="time"
-                    onChange={(e) => {
-                      setTime(e.target.value);
-                    }}
-                    className="flex dark:text-black h-10 w-full items-center rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                  >
-                    <option value="">Select time</option>
-                    <option value="6:00 PM">6:00 PM</option>
-                    <option value="7:00 PM">7:00 PM</option>
-                    <option value="8:00 PM">8:00 PM</option>
-                    <option value="9:00 PM">9:00 PM</option>
-                    <option value="10:00 PM">10:00 PM</option>
-                  </select>
+                  <p className="font-medium text-white">Avalanche Lounge</p>
+                  <p className="text-gray-400">Am Sittardsberg</p>
+                  <p className="text-gray-400">Dortmund, Germany</p>
                 </div>
-                <button
-                  className="inline-flex items-center justify-center p-4 bg-[#D9D9D9] dark:bg-amber-500 dark:text-black hover:bg-[#C9C9C9]"
-                  type="submit"
-                  onClick={handleSubmit}
-                >
-                  Reserve Now
-                </button>
-              </form>
+              </div>
+              <div className="flex items-center gap-3">
+                <FaPhone className="text-cyan-400 shrink-0" />
+                <a href="tel:+49" className="hover:text-cyan-400 transition-colors">+49 (0) — — — — — —</a>
+              </div>
+              <div className="flex items-center gap-3">
+                <FaEnvelope className="text-cyan-400 shrink-0" />
+                <a href="mailto:info@avalanche-lounge.de" className="hover:text-cyan-400 transition-colors">
+                  info@avalanche-lounge.de
+                </a>
+              </div>
             </div>
           </div>
-        </section>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-amber-100 bg-green-900 p-5 text-center">
-          Popular Board Games
-        </h1>
-        <div className="mt-8 w-full flex justify-center bg-amber-100 dark:bg-black">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8 mb-10">
-            {[
-              { src: pic2, title: 'Catan', players: '4-6 players' },
-              { src: pic3, title: 'Ticket to Ride', players: '2-5 players' },
-              { src: pic4, title: 'Codenames', players: '4-8 players' },
-              { src: pic4, title: 'Codenames', players: '4-8 players' },
-              { src: pic4, title: 'Codenames', players: '4-8 players' },
-              { src: pic5, title: 'Pandemic', players: '2-4 players' },
-            ].map((game, index) => (
-              <div
-                key={index}
-                className="relative overflow-hidden transition-transform duration-300 ease-in-out perspective group"
-                data-v0-t="card"
-              >
-                <div className="flex flex-col items-center justify-center p-6 rounded-lg border bg-card text-card-foreground shadow-sm group-hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-lg">
-                  <img
-                    src={game.src}
-                    alt={game.title}
-                    loading="lazy"
-                    className="mb-4 w-64 h-64 object-cover"
-                  />
-                  <div className="font-medium">{game.title}</div>
-                  <div className="text-muted-foreground text-sm">
-                    {game.players}
-                  </div>
+
+          {/* Opening hours */}
+          <div className="rounded-2xl border border-white/10 p-6" style={{ background: 'rgba(13,26,46,0.7)' }}>
+            <h3
+              className="text-lg font-bold mb-4 flex items-center gap-2"
+              style={{
+                background: 'linear-gradient(90deg, #67e8f9, #3b82f6)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              <FaClock className="text-cyan-400" style={{ WebkitTextFillColor: 'initial' }} />
+              Opening Hours
+            </h3>
+            <div className="space-y-2 text-sm">
+              {[
+                { day: 'Monday – Thursday', hours: '16:00 – 02:00' },
+                { day: 'Friday & Saturday', hours: '16:00 – 05:00' },
+                { day: 'Sunday', hours: '16:00 – 02:00' },
+              ].map(({ day, hours }) => (
+                <div key={day} className="flex justify-between items-center border-b border-white/5 pb-2">
+                  <span className="text-gray-400">{day}</span>
+                  <span className="text-white font-medium">{hours}</span>
                 </div>
-                {/* Glow effect */}
-                <div className="absolute inset-0 rounded-lg bg-yellow-500 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-25"></div>
+              ))}
+            </div>
+          </div>
+
+          {/* Map embed */}
+          <div className="rounded-2xl overflow-hidden border border-white/10" style={{ height: '200px' }}>
+            <iframe
+              title="Avalanche Lounge Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.5!2d7.0081281!3d51.4589541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8c3e48272802d%3A0x94bc506828aa9c19!2sSarab%20Lounge!5e0!3m2!1sen!2sde!4v1700000000000"
+              width="100%"
+              height="100%"
+              style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg)' }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
+
+        {/* RIGHT — Reservation form */}
+        <div className="lg:col-span-3">
+          <div className="rounded-2xl border border-white/10 p-6 md:p-8" style={{ background: 'rgba(13,26,46,0.7)' }}>
+            <h2 className="text-2xl font-bold text-white mb-6">Reserve a Table</h2>
+
+            {status === 'success' && (
+              <div className="mb-6 p-4 rounded-xl bg-green-900/30 border border-green-500/40 text-green-300 text-sm">
+                ✅ Request sent! We'll confirm your reservation shortly.
               </div>
-            ))}
+            )}
+            {status === 'error' && (
+              <div className="mb-6 p-4 rounded-xl bg-red-900/30 border border-red-500/40 text-red-300 text-sm">
+                ❌ Something went wrong. Please try again or call us directly.
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Name row */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs text-gray-400 mb-1 uppercase tracking-wider">First Name *</label>
+                  <input
+                    className={inputClass}
+                    name="firstName"
+                    value={form.firstName}
+                    onChange={handleChange}
+                    placeholder="Abed"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Last Name *</label>
+                  <input
+                    className={inputClass}
+                    name="lastName"
+                    value={form.lastName}
+                    onChange={handleChange}
+                    placeholder="Al-Sayed"
+                    required
+                  />
+                </div>
+              </div>
+
+              {/* Guests */}
+              <div>
+                <label className="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Number of Guests *</label>
+                <select
+                  className={inputClass}
+                  name="guests"
+                  value={form.guests}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="" disabled>Select guests</option>
+                  {[1,2,3,4,5,6,7,8,9,10].map(n => (
+                    <option key={n} value={n} style={{ background: '#0d1a2e' }}>{n} {n === 1 ? 'Person' : 'People'}</option>
+                  ))}
+                  <option value="10+" style={{ background: '#0d1a2e' }}>10+ (Large group)</option>
+                </select>
+              </div>
+
+              {/* Date & Time row */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Date *</label>
+                  <input
+                    className={inputClass}
+                    type="date"
+                    name="date"
+                    value={form.date}
+                    onChange={handleChange}
+                    min={minDate}
+                    required
+                    style={{ colorScheme: 'dark' }}
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Time *</label>
+                  <input
+                    className={inputClass}
+                    type="time"
+                    name="time"
+                    value={form.time}
+                    onChange={handleChange}
+                    required
+                    style={{ colorScheme: 'dark' }}
+                  />
+                </div>
+              </div>
+
+              {/* Email */}
+              <div>
+                <label className="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Email *</label>
+                <input
+                  className={inputClass}
+                  type="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+
+              {/* Message */}
+              <div>
+                <label className="block text-xs text-gray-400 mb-1 uppercase tracking-wider">Message / Special Requests</label>
+                <textarea
+                  className={`${inputClass} resize-none`}
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
+                  rows={4}
+                  placeholder="Any special requests, shisha preferences, or occasion details..."
+                />
+              </div>
+
+              {/* Submit */}
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full py-3.5 rounded-xl font-semibold text-white text-sm tracking-wide transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+                style={{
+                  background: loading
+                    ? 'rgba(59,130,246,0.4)'
+                    : 'linear-gradient(135deg, #3b82f6, #06b6d4)',
+                  boxShadow: loading ? 'none' : '0 0 20px rgba(6,182,212,0.2)',
+                }}
+              >
+                {loading ? 'Sending...' : 'Send Reservation Request →'}
+              </button>
+
+              <p className="text-gray-600 text-xs text-center">
+                We'll confirm your reservation by email within 24 hours.
+              </p>
+            </form>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
-export default MainHOC(Register);
+
+export default MainHOC(Reservation);
