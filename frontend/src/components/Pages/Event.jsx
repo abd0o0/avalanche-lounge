@@ -212,8 +212,12 @@ function Event() {
 
       {/* ── EVENT GALLERY STRIP ── */}
       <section className="py-12 bg-gray-50 dark:bg-gray-900 overflow-hidden">
-        <div className="flex gap-4 animate-[scroll_30s_linear_infinite]"
-          style={{ width: 'max-content' }}>
+        <style>{`
+          @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+          .marquee-track { animation: marquee 30s linear infinite; }
+          .marquee-track:hover { animation-play-state: paused; }
+        `}</style>
+        <div className="marquee-track flex gap-4" style={{ width: 'max-content' }}>
           {[img1,img2,img3,img4,img5,img1,img2,img3,img4,img5].map((img, i) => (
             <div key={i} className="w-64 h-40 rounded-xl overflow-hidden shrink-0">
               <img src={img} alt="" className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
