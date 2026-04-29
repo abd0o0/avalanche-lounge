@@ -94,7 +94,7 @@ const FeedbackForm = () => {
           className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center"
         >
           <div className="mb-8 lg:mb-0 relative">
-            <h2 className="text-5xl font-black text-[#004D43] dark:text-green-500">
+            <h2 className="text-5xl font-black text-blue-700 dark:text-green-500">
               We value Your Feedback!
             </h2>
             <p className="mt-1 text-lg text-gray-700 pb-3 dark:text-white">
@@ -176,7 +176,7 @@ const FeedbackForm = () => {
               <div>
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md dark:bg-cyan-700 shadow-sm text-sm font-medium text-white bg-[#09342e] hover:bg-[#072d28] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#004D43]"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md dark:bg-cyan-700 shadow-sm text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   disabled={isLoading} // Disable the button while loading
                 >
                   {isLoading ? 'Submitting...' : 'Submit Feedback'}

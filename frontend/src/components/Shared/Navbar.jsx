@@ -2,18 +2,20 @@ import { useState, useEffect } from 'react';
 import Logo from '../../assets/Logo/playcafe.png';
 import { Link, useLocation } from 'react-router-dom';
 import ThemeToggle from '../../components/ThemeToggle';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiGlobe } from 'react-icons/fi';
+import { useTranslation } from '../../i18n/useTranslation.jsx';
 
 const Navbar = () => {
+  const { locale, setLocale } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  const menuItems = [
-    { name: 'HOME', path: '/' },
-    { name: 'EVENTS', path: '/events' },
-    { name: 'MENU', path: '/menu' },
-    { name: 'RESERVATION', path: '/reservation' },
+   [
+    { name: t('nav.home'), path: '/' },
+    { name: t('nav.events'), path: '/events' },
+    { name: t('nav.menu'), path: '/menu' },
+    { name: t('nav.reservation'), path: '/reservation' },
   ];
 
   useEffect(() => {
@@ -94,8 +96,17 @@ const Navbar = () => {
               to="/reservation"
               className="px-5 py-2 font-semibold text-white text-sm bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
             >
-              Reserve a Table
+              {t('nav.reservation')}
             </Link>
+            <div className="ml-2 flex items-center gap-1">
+              <button
+                onClick={() => setLocale(locale === 'en' ? 'de' : 'en')}
+                className="w-9 h-9 rounded-lg bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:border-blue-400 dark:hover:border-cyan-500 hover:text-blue-600 dark:hover:text-cyan-400 transition-all duration-200"
+                aria-label="Switch language"
+              >
+                <FiGlobe size={15} />
+              </button>
+            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -137,7 +148,7 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
                 className="block text-center px-4 py-3 font-semibold text-white text-sm bg-gradient-to-r from-blue-500 to-cyan-600 rounded-xl shadow-lg"
               >
-                Reserve a Table
+                {t('nav.reservation')}
               </Link>
             </div>
           </div>

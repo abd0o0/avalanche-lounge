@@ -108,7 +108,7 @@ const ReviewCarousel = () => {
             width: '350px',
             height: '500px',
             textAlign: 'justify',
-            background: '#016457', // Dark green to light yellow gradient
+            background: '#0a1628', // Dark green to light yellow gradient
             borderRadius: '12px',
             padding: '20px',
             transition: '0.5s',
@@ -156,7 +156,7 @@ const ReviewCarousel = () => {
         {active < items.length - 1 && (
           <motion.button
             id="next"
-            className=" absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 right-[50px] max-sm:text-white max-sm:text-2xl max-sm:right-2"
+            className=" absolute top-[40%] text-gray-900 dark:text-white bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 right-[50px] max-sm:text-white max-sm:text-2xl max-sm:right-2"
             onClick={() =>
               setActive((prev) => (prev + 1 < items.length ? prev + 1 : prev))
             }
@@ -168,7 +168,7 @@ const ReviewCarousel = () => {
         {active > 0 && (
           <motion.button
             id="prev"
-            className=" absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 left-[50px] max-sm:text-white max-sm:text-2xl max-sm:left-2"
+            className=" absolute top-[40%] text-gray-900 dark:text-white bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 left-[50px] max-sm:text-white max-sm:text-2xl max-sm:left-2"
             onClick={() => setActive((prev) => (prev - 1 >= 0 ? prev - 1 : prev))}
             whileHover={{ x: -10, color: '#00B2CA', opacity: 1 }}
           >

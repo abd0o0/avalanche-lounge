@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useTranslation } from '../../i18n/useTranslation.jsx';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import MainHOC from '../MainHOC';
@@ -12,18 +13,19 @@ import cocktails from '../../assets/avalanche/cocktails.jpg';
 
 const VITE_BACKEND = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
 
-const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+// Months handled by translation
 
 // Static fallback events when backend is offline
 const FALLBACK_EVENTS = [
-  { _id: '1', name: 'Ladies Night', description: 'Every Thursday — free cocktail for every lady. Good vibes all night.', date: new Date(Date.now() + 3*24*3600*1000).toISOString(), image: img1 },
-  { _id: '2', name: 'DJ Night', description: 'Friday nights — live DJ sets from 22:00. Dance until 5am.', date: new Date(Date.now() + 5*24*3600*1000).toISOString(), image: img2 },
-  { _id: '3', name: 'Shisha Championship', description: 'Show off your cloud game. Prizes for the biggest, most creative blows.', date: new Date(Date.now() + 10*24*3600*1000).toISOString(), image: img3 },
-  { _id: '4', name: 'Arabic Night', description: 'Oriental music, special shisha blends, and a menu from the heart.', date: new Date(Date.now() + 14*24*3600*1000).toISOString(), image: img4 },
+  { _id: '1', name: '{t("events.eventFallback1")}', description: '{t("events.eventFallback1Desc")}', date: new Date(Date.now() + 3*24*3600*1000).toISOString(), image: img1 },
+  { _id: '2', name: '{t("events.eventFallback2")}', description: '{t("events.eventFallback2Desc")}', date: new Date(Date.now() + 5*24*3600*1000).toISOString(), image: img2 },
+  { _id: '3', name: '{t("events.eventFallback3")}', description: '{t("events.eventFallback3Desc")}', date: new Date(Date.now() + 10*24*3600*1000).toISOString(), image: img3 },
+  { _id: '4', name: '{t("events.eventFallback4")}', description: '{t("events.eventFallback4Desc")}', date: new Date(Date.now() + 14*24*3600*1000).toISOString(), image: img4 },
 ];
 
 function Event() {
+  const { t } = useTranslation();
   const [events, setEvents] = useState([]);
   const today = new Date();
   const currentMonth = today.getMonth();
@@ -103,7 +105,7 @@ function Event() {
           {/* Events */}
           <div className="lg:col-span-2">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">
-              Upcoming Events
+              {t("events.upcoming")}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {displayEvents.map((event, i) => {
@@ -177,7 +179,7 @@ function Event() {
 
             {/* Opening hours */}
             <div className="rounded-2xl border border-gray-100 dark:border-white/10 bg-white dark:bg-gray-900 p-6">
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Opening Hours</h3>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">{t("events.openingHours")}</h3>
               <div className="space-y-2 text-sm">
                 {[
                   { day: 'Mon – Thu', hours: '16:00 – 02:00' },
@@ -198,11 +200,11 @@ function Event() {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-900/90 to-cyan-900/90" />
               <div className="relative z-10 p-6 text-center">
                 <p className="text-cyan-300 text-xs tracking-widest uppercase mb-2">Got a group?</p>
-                <h3 className="text-white font-bold text-lg mb-2">Private Events</h3>
+                <h3 className="text-white font-bold text-lg mb-2">{t("events.privateEvents")}</h3>
                 <p className="text-gray-300 text-sm mb-4">Birthday, bachelor, corporate — we've got the space and the vibe.</p>
                 <Link to="/reservation"
                   className="block w-full py-2.5 bg-white text-blue-700 font-semibold text-sm rounded-xl hover:scale-105 transition-transform">
-                  Inquire Now
+                  {t("events.inquire")}
                 </Link>
               </div>
             </div>

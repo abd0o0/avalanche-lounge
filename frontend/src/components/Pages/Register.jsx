@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from '../../i18n/useTranslation.jsx';
 import MainHOC from '../MainHOC';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from 'react-icons/fa';
 
 function Reservation() {
+  const { t } = useTranslation();
   const [form, setForm] = useState({
     firstName: '',
     lastName: '',
@@ -67,8 +69,8 @@ function Reservation() {
           className="text-5xl md:text-7xl font-bold mb-2"
           style={{
             background: 'linear-gradient(135deg, #67e8f9, #3b82f6)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
+            webkitBackgroundClip: 'text',
+            webkitTextFillColor: 'transparent',
           }}
         >
           Reservation
@@ -92,8 +94,8 @@ function Reservation() {
               className="text-lg font-bold mb-4"
               style={{
                 background: 'linear-gradient(90deg, #67e8f9, #3b82f6)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
+                webkitBackgroundClip: 'text',
+                webkitTextFillColor: 'transparent',
               }}
             >
               Contact
@@ -126,11 +128,11 @@ function Reservation() {
               className="text-lg font-bold mb-4 flex items-center gap-2"
               style={{
                 background: 'linear-gradient(90deg, #67e8f9, #3b82f6)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
+                webkitBackgroundClip: 'text',
+                webkitTextFillColor: 'transparent',
               }}
             >
-              <FaClock className="text-cyan-400" style={{ WebkitTextFillColor: 'initial' }} />
+              <FaClock className="text-cyan-400" style={{ webkitTextFillColor: 'initial' }} />
               Opening Hours
             </h3>
             <div className="space-y-2 text-sm">
@@ -165,16 +167,16 @@ function Reservation() {
         {/* RIGHT — Reservation form */}
         <div className="lg:col-span-3">
           <div className="rounded-2xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-blue-950/40 p-6 md:p-8">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Reserve a Table</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t("reservation.title")}</h2>
 
             {status === 'success' && (
               <div className="mb-6 p-4 rounded-xl bg-green-900/30 border border-green-500/40 text-green-300 text-sm">
-                ✅ Request sent! We'll confirm your reservation shortly.
+                ✅ {t("reservation.success")}'ll confirm your reservation shortly.
               </div>
             )}
             {status === 'error' && (
               <div className="mb-6 p-4 rounded-xl bg-red-900/30 border border-red-500/40 text-red-300 text-sm">
-                ❌ Something went wrong. Please try again or call us directly.
+                ❌ {t("reservation.error")}
               </div>
             )}
 
@@ -182,7 +184,7 @@ function Reservation() {
               {/* Name row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">First Name *</label>
+                  <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">{t("reservation.firstName")} *</label>
                   <input
                     className={inputClass}
                     name="firstName"
@@ -193,7 +195,7 @@ function Reservation() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">Last Name *</label>
+                  <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">{t("reservation.lastName")} *</label>
                   <input
                     className={inputClass}
                     name="lastName"
@@ -207,7 +209,7 @@ function Reservation() {
 
               {/* Guests */}
               <div>
-                <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">Number of Guests *</label>
+                <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">{t("reservation.guests")} *</label>
                 <select
                   className={inputClass}
                   name="guests"
@@ -215,7 +217,7 @@ function Reservation() {
                   onChange={handleChange}
                   required
                 >
-                  <option value="" disabled>Select guests</option>
+                  <option value="" disabled>{t("reservation.guestsPlaceholder")}</option>
                   {[1,2,3,4,5,6,7,8,9,10].map(n => (
                     <option key={n} value={n} style={{ background: '#0d1a2e' }}>{n} {n === 1 ? 'Person' : 'People'}</option>
                   ))}
@@ -223,10 +225,10 @@ function Reservation() {
                 </select>
               </div>
 
-              {/* Date & Time row */}
+              {/* {t("reservation.date")} & {t("reservation.time")} row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">Date *</label>
+                  <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">{t("reservation.date")} *</label>
                   <input
                     className={inputClass}
                     type="date"
@@ -239,7 +241,7 @@ function Reservation() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">Time *</label>
+                  <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">{t("reservation.time")} *</label>
                   <input
                     className={inputClass}
                     type="time"
@@ -252,9 +254,9 @@ function Reservation() {
                 </div>
               </div>
 
-              {/* Email */}
+              {/* {t("reservation.email")} */}
               <div>
-                <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">Email *</label>
+                <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">{t("reservation.email")} *</label>
                 <input
                   className={inputClass}
                   type="email"
@@ -268,7 +270,7 @@ function Reservation() {
 
               {/* Message */}
               <div>
-                <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">Message / Special Requests</label>
+                <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wider">{t("reservation.message")}</label>
                 <textarea
                   className={`${inputClass} resize-none`}
                   name="message"
@@ -291,11 +293,11 @@ function Reservation() {
                   boxShadow: loading ? 'none' : '0 0 20px rgba(6,182,212,0.2)',
                 }}
               >
-                {loading ? 'Sending...' : 'Send Reservation Request →'}
+                {loading ? '{t("reservation.sending")}' : '{t("reservation.send")}'}
               </button>
 
               <p className="text-gray-600 text-xs text-center">
-                We'll confirm your reservation by email within 24 hours.
+                {t("reservation.confirmation")}'ll confirm your reservation by email within 24 hours.
               </p>
             </form>
           </div>

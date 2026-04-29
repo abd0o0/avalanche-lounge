@@ -1,0 +1,162 @@
+{
+  "brand": {
+    "name": "Avalanche",
+    "arabic": "\u0627\u0644\u0634\u0644\u0627\u0644",
+    "slogan": "Lounge \u00b7 Shisha \u00b7 Bar",
+    "tagline": "Your premium lounge in Dortmund. Shisha, cocktails, food & unforgettable nights."
+  },
+  "nav": {
+    "home": "Home",
+    "events": "Events",
+    "menu": "Menu",
+    "reservation": "Reservation"
+  },
+  "home": {
+    "cta": "Where the vibe hits different",
+    "reserve": "Reserve a Table",
+    "viewMenu": "View Menu",
+    "aboutTitle": "About Us",
+    "aboutTitleText": "More than just a lounge",
+    "aboutText": "Welcome to Avalanche, your premium lounge destination in Dortmund. We blend oriental warmth with modern elegance to create an atmosphere that feels like nowhere else. Handcrafted cocktails, premium shisha, great food, and an energy that builds through the night. Whether you're here to unwind or celebrate \u2014 this is your place.",
+    "aboutText2": "Handcrafted cocktails, premium shisha, great food, and an energy that builds through the night. Whether you're here to unwind or celebrate \u2014 this is your place.",
+    "offersTitle": "What We Offer",
+    "experienceTitle": "Experience Avalanche",
+    "ctaBannerTitle": "Ready for a night out?",
+    "ctaBannerText": "Reserve your table now \u2014 or just show up and let the night take you.",
+    "offers": {
+      "shisha": {
+        "title": "Premium Shisha",
+        "arabic": "\u0634\u064a\u0634\u0629",
+        "desc": "8+ flavours. Premium tobacco. Coal refreshes included.",
+        "tag": "From \u20ac14"
+      },
+      "cocktails": {
+        "title": "Cocktails & Bar",
+        "arabic": "\u0628\u0627\u0631 \u0648\u0643\u0648\u0643\u062a\u064a\u0644",
+        "desc": "Signature creations and classic favourites. Mixed to perfection.",
+        "tag": "From \u20ac7.50"
+      },
+      "food": {
+        "title": "Kitchen & Bites",
+        "arabic": "\u0645\u0637\u0628\u062e",
+        "desc": "From loaded fries to wagyu burgers. Food that hits.",
+        "tag": "From \u20ac6.50"
+      }
+    }
+  },
+  "menu": {
+    "title": "Our Menu",
+    "arabicTitle": "\u0642\u0627\u0626\u0645\u062a\u0646\u0627",
+    "subtitle": "Cocktails, mocktails, coffee, food \u2014 and of course, premium shisha.",
+    "tabDrinks": "Drinks & Food",
+    "tabShisha": "Shisha",
+    "flipPrompt": "Flip through the menu",
+    "shishaTitle": "Shisha Menu",
+    "shishaArabic": "\u0642\u0627\u0626\u0645\u0629 \u0627\u0644\u0634\u064a\u0634\u0629",
+    "shishaDesc": "Premium tobacco & coal. Coal refreshes and your choice of mouthpiece included.",
+    "shishaFlavours": "Flavours",
+    "shishaFlavoursList": {
+      "doubleApple_arabic": "Classic sweet apple blend \u2014 our bestseller.",
+      "grapeMint_arabic": "Fresh grape with cool mint finish.",
+      "watermelonIce_arabic": "Chilled watermelon with icy freshness.",
+      "blueMist_arabic": "Blueberry & anise \u2014 smooth and deep.",
+      "lemonMint_arabic": "Zesty citrus with a minty punch.",
+      "roseGold_arabic": "Floral rose with a hint of vanilla.",
+      "guavaPassion_arabic": "Tropical guava & passion fruit.",
+      "melonBreeze_arabic": "Light honeydew melon, smooth smoke."
+    },
+    "menuSections": {
+      "hotCoffee": "Hot Coffee",
+      "coldCoffee": "Cold Coffee",
+      "signature": "Signature",
+      "classics": "Classics",
+      "mocktails": "Mocktails",
+      "freshJuices": "Fresh Juices",
+      "starters": "Starters",
+      "mains": "Mains",
+      "softDrinks": "Soft Drinks",
+      "milkshakes": "Milkshakes & Smoothies",
+      "beer": "Beer",
+      "wine": "Wine & Sparkling"
+    }
+  },
+  "events": {
+    "title": "Events",
+    "whatsOn": "What's on",
+    "upcoming": "Upcoming Events",
+    "calendarTitle": "Event Calendar",
+    "privateEvents": "Private Events",
+    "privateEventsDesc": "Got a group? Birthday, bachelor, corporate \u2014 we've got the space and the vibe.",
+    "inquire": "Inquire Now",
+    "openingHours": "Opening Hours",
+    "eventFallback1": "Ladies Night",
+    "eventFallback1Desc": "Every Thursday \u2014 free cocktail for every lady. Good vibes all night.",
+    "eventFallback2": "DJ Night",
+    "eventFallback2Desc": "Friday nights \u2014 live DJ sets from 22:00. Dance until 5am.",
+    "eventFallback3": "Shisha Championship",
+    "eventFallback3Desc": "Show off your cloud game. Prizes for the biggest, most creative blows.",
+    "eventFallback4": "Arabic Night",
+    "eventFallback4Desc": "Oriental music, special shisha blends, and a menu from the heart."
+  },
+  "reservation": {
+    "title": "Reservation",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "guests": "Number of Guests",
+    "guestsPlaceholder": "Select guests",
+    "date": "Date",
+    "time": "Time",
+    "email": "Email",
+    "message": "Message / Special Requests",
+    "send": "Send Reservation Request \u2192",
+    "sending": "Sending...",
+    "success": "Request sent! We'll confirm your reservation shortly.",
+    "error": "Something went wrong. Please try again or call us directly.",
+    "confirmation": "We'll confirm your reservation by email within 24 hours."
+  },
+  "openingHours": {
+    "monThu": "Mon \u2013 Thu: 16:00 \u2013 02:00",
+    "friSat": "Fri \u2013 Sat: 16:00 \u2013 05:00",
+    "sunday": "Sunday: 16:00 \u2013 02:00"
+  },
+  "footer": {
+    "newsletter": "Stay Updated",
+    "newsletterPlaceholder": "Enter email",
+    "newsletterSubmit": "Subscribe",
+    "subscribed": "You're subscribed!",
+    "navTitle": "Navigation",
+    "hours": "Opening Hours",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms",
+    "reserve": "Reserve a Table",
+    "copyright": "All rights reserved."
+  },
+  "days": [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat"
+  ],
+  "months": [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ],
+  "about": {
+    "title": "About Us",
+    "arabic": "\u0639\u0646\u0627"
+  }
+}

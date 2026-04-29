@@ -1,5 +1,6 @@
 import React from 'react';
 import MainHOC from '../MainHOC';
+import { useTranslation } from '../../i18n/useTranslation.jsx';
 
 const shishaFlavors = [
   { name: 'Double Apple', arabic: 'تفاحتان', description: 'Classic sweet apple blend — our bestseller.', price: '€14' },
@@ -13,22 +14,22 @@ const shishaFlavors = [
 ];
 
 function Shisha() {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-950 to-gray-900 text-white pt-24 pb-20 px-4 md:px-12">
       {/* Hero */}
       <div className="text-center mb-16">
         <h1 className="text-5xl md:text-8xl font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600 bg-clip-text text-transparent mb-4">
-          Shisha Menu
+          {t('menu.shishaTitle')}
         </h1>
         <p
           className="text-3xl md:text-5xl text-gray-400 mb-6"
           style={{ fontFamily: '"Noto Naskh Arabic", serif' }}
         >
-          قائمة الشيشة
+          {t('menu.shishaArabic') || 'قائمة الشيشة'}
         </p>
         <p className="text-gray-400 text-lg max-w-xl mx-auto">
-          Premium tobacco & coal. All shisha orders include coal refreshes and
-          your choice of mouthpiece.
+          {t('menu.shishaDesc')}
         </p>
       </div>
 
@@ -52,9 +53,9 @@ function Shisha() {
                 className="text-gray-400 text-base mb-3"
                 style={{ fontFamily: '"Noto Naskh Arabic", serif', direction: 'rtl' }}
               >
-                {flavor.arabic}
+                {t(`menu.shishaFlavoursList.${flavor.name === 'Double Apple' ? 'doubleApple' : flavor.name === 'Grape Mint' ? 'grapeMint' : flavor.name === 'Watermelon Ice' ? 'watermelonIce' : flavor.name === 'Blue Mist' ? 'blueMist' : flavor.name === 'Lemon Mint' ? 'lemonMint' : flavor.name === 'Rose Gold' ? 'roseGold' : flavor.name === 'Guava Passion' ? 'guavaPassion' : 'melonBreeze'}_arabic`)}
               </p>
-              <p className="text-gray-400 text-sm leading-relaxed">{flavor.description}</p>
+              <p className="text-gray-400 text-sm leading-relaxed">{t(`menu.shishaFlavoursList.${flavor.name === 'Double Apple' ? 'doubleApple' : flavor.name === 'Grape Mint' ? 'grapeMint' : flavor.name === 'Watermelon Ice' ? 'watermelonIce' : flavor.name === 'Blue Mist' ? 'blueMist' : flavor.name === 'Lemon Mint' ? 'lemonMint' : flavor.name === 'Rose Gold' ? 'roseGold' : flavor.name === 'Guava Passion' ? 'guavaPassion' : 'melonBreeze'}_arabic`)}</p>
             </div>
           </div>
         ))}

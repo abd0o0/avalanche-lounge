@@ -1,6 +1,7 @@
 'use client';
 import bgpic from '../../assets/img/abt1.jpg';
 import React, { useEffect } from 'react';
+import { useTranslation } from '../../i18n/useTranslation.jsx';
 
 export default function About() {
   useEffect(() => {
@@ -20,9 +21,9 @@ export default function About() {
           {/* Heading */}
           <div className="p-4 text-center">
             <h1 className="text-4xl font-bold text-white md:text-7xl lg:text-9xl">
-              ABOUT US
+              {t('about.title') || 'About Us'}
             </h1>
-            <p className="text-xl text-cyan-300 mt-2" style={{fontFamily: '"Noto Naskh Arabic", serif'}}>عنا</p>
+            <p className="text-xl text-cyan-300 mt-2" style={{fontFamily: '"Noto Naskh Arabic", serif'}}>{t('about.arabic') || 'عنا'}</p>
           </div>
 
           {/* Paragraph */}
