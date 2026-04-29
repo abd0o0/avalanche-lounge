@@ -45,10 +45,10 @@ function ParallaxImage() {
         <div className="flex md:flex-row flex-col items-center justify-between mt-24 mb-20">
           <div className="w-3/4 pl-8 text-left animate-fadeIn">
             <h1 className="md:text-7xl text-4xl text-black dark:text-white font-bold font-mono mb-4">
-              Discover Sip & Play
+              Discover Avalanche
             </h1>
             <p className="md:text-3xl text-xl font-mono mb-8 dark:text-gray-400">
-              Dive into a world of flavor with our immersive 3D Menu experience
+              Explore our menu — shisha, cocktails, food &amp; more
             </p>
           </div>
           <div className="w-full flex justify-center items-center rounded-e-full z-1 shadow-lg bg-amber-200 dark:bg-amber-900 animate-slideIn">
@@ -66,7 +66,7 @@ function ParallaxImage() {
           </div>
         </div>
         <div className="flex flex-col items-center mb-2">
-          <h1 className="text-5xl md:text-9xl font-roboto dark:text-gray-50">Flip Menu</h1>
+          <h1 className="text-5xl md:text-9xl font-roboto dark:text-gray-50 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">Our Menu</h1>
           <GiArrowDunk size={60} className="mt-2 text-orange-400" />
         </div>
         {/* <div className="w-full md:flex md:items-center md:justify-center">

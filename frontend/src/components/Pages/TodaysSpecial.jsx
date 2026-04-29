@@ -11,70 +11,70 @@ import latte from '../../assets/TSimg/latte.webp';
 import iced_tea from '../../assets/TSimg/iced_tea.webp';
 import caesar_salad from '../../assets/TSimg/caesar_salad.webp';
 
-// Sample data for today's specials
+// Sample data for today's specials — Avalanche Lounge menu
 const todaysSpecials = [
-  { 
-    name: "Espresso", 
-    description: "Rich and bold coffee shot.", 
-    originalPrice: "$3.00", 
-    offerPrice: "$2.50",
-    image: espresso 
+  {
+    name: "Shisha Classic",
+    description: "Premium double apple hookah.",
+    originalPrice: "€18.00",
+    offerPrice: "€14.00",
+    image: espresso
   },
-  { 
-    name: "Cappuccino", 
-    description: "Creamy coffee with frothy milk.", 
-    originalPrice: "$3.50", 
-    offerPrice: "$3.00",
-    image: cappuccino 
+  {
+    name: "Mojito Mocktail",
+    description: "Fresh mint, lime & sparkling water.",
+    originalPrice: "€7.00",
+    offerPrice: "€5.50",
+    image: lemonade
   },
-  { 
-    name: "Latte", 
-    description: "Smooth coffee with steamed milk.", 
-    originalPrice: "$4.00", 
-    offerPrice: "$3.50",
-    image: latte 
+  {
+    name: "Rose Latte",
+    description: "Floral espresso with steamed milk.",
+    originalPrice: "€5.00",
+    offerPrice: "€4.00",
+    image: latte
   },
-  { 
-    name: "Mango Smoothie", 
-    description: "Refreshing mango blend.", 
-    originalPrice: "$4.50", 
-    offerPrice: "$4.00",
-    image: mango_smoothie 
+  {
+    name: "Mango Smoothie",
+    description: "Refreshing tropical mango blend.",
+    originalPrice: "€6.00",
+    offerPrice: "€4.50",
+    image: mango_smoothie
   },
-  { 
-    name: "Lemonade", 
-    description: "Zesty and chilled lemonade.", 
-    originalPrice: "$2.50", 
-    offerPrice: "$2.00",
-    image: lemonade 
+  {
+    name: "Matcha Lemonade",
+    description: "Iced matcha with fresh lemon.",
+    originalPrice: "€5.50",
+    offerPrice: "€4.50",
+    image: iced_tea
   },
-  { 
-    name: "Iced Tea", 
-    description: "Cool iced tea with lemon.", 
-    originalPrice: "$2.00", 
-    offerPrice: "$1.50",
-    image: iced_tea 
+  {
+    name: "Cappuccino",
+    description: "Creamy espresso with frothy milk.",
+    originalPrice: "€4.00",
+    offerPrice: "€3.00",
+    image: cappuccino
   },
-  { 
-    name: "Cheese Sandwich", 
-    description: "Toasted sandwich with cheese.", 
-    originalPrice: "$3.50", 
-    offerPrice: "$3.00",
-    image: cheese_sandwich 
+  {
+    name: "Grilled Halloumi Wrap",
+    description: "Warm wrap with halloumi & greens.",
+    originalPrice: "€9.00",
+    offerPrice: "€7.50",
+    image: cheese_sandwich
   },
-  { 
-    name: "Pasta Primavera", 
-    description: "Veggies and pasta in a light sauce.", 
-    originalPrice: "$5.50", 
-    offerPrice: "$5.00",
-    image: pasta_primavera 
+  {
+    name: "Pasta Arrabiata",
+    description: "Spicy tomato pasta, al dente.",
+    originalPrice: "€10.00",
+    offerPrice: "€8.00",
+    image: pasta_primavera
   },
-  { 
-    name: "Caesar Salad", 
-    description: "Crispy salad with Caesar dressing.", 
-    originalPrice: "$5.00", 
-    offerPrice: "$4.50",
-    image: caesar_salad 
+  {
+    name: "Caesar Salad",
+    description: "Crisp romaine, croutons, dressing.",
+    originalPrice: "€8.00",
+    offerPrice: "€6.50",
+    image: caesar_salad
   }
 ];
 

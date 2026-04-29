@@ -9,7 +9,7 @@ export default function Content() {
   return (
     <div className="relative min-h-full">
       {/* Background gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-amber-100 to-orange-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 opacity-90"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-blue-100 to-cyan-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 opacity-90"></div>
       
       <div className="relative z-10 container mx-auto px-6 lg:px-12 py-12">
         {/* Main content grid */}
@@ -67,7 +67,7 @@ const NewsletterForm = () => {
   return (
     <div className="relative group">
       {/* Compact animated background */}
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-400 to-orange-500 rounded-2xl blur-sm opacity-20 group-hover:opacity-30 transition duration-300 animate-pulse"></div>
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-2xl blur-sm opacity-20 group-hover:opacity-30 transition duration-300 animate-pulse"></div>
       
       <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl rounded-2xl shadow-xl p-6 border border-white/20 dark:border-gray-700/50 max-w-xs w-full transform transition-all duration-300 hover:scale-[1.01]">
         
@@ -75,7 +75,7 @@ const NewsletterForm = () => {
           {/* Compact header */}
           <div className="text-center mb-5">
             <div className="relative inline-block mb-3">
-              <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-amber-400 to-orange-500 rounded-xl shadow-lg transform transition-transform duration-300 hover:rotate-6">
+              <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-xl shadow-lg transform transition-transform duration-300 hover:rotate-6">
                 <HiMail className="text-xl text-white" />
               </div>
             </div>
@@ -96,7 +96,7 @@ const NewsletterForm = () => {
               </div>
               <input
                 type="email"
-                className="w-full pl-10 pr-3 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-all duration-300 bg-gray-50/50 dark:bg-gray-800/50 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-sm"
+                className="w-full pl-10 pr-3 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-300 bg-gray-50/50 dark:bg-gray-800/50 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-sm"
                 placeholder="Enter email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -107,7 +107,7 @@ const NewsletterForm = () => {
             <button 
               type="submit" 
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 transform active:scale-95 focus:outline-none focus:ring-2 focus:ring-amber-500/50 disabled:opacity-60 disabled:cursor-not-allowed shadow-lg hover:shadow-xl text-sm"
+              className="w-full bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 transform active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-500/50 disabled:opacity-60 disabled:cursor-not-allowed shadow-lg hover:shadow-xl text-sm"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center space-x-2">
@@ -145,12 +145,12 @@ const NewsletterForm = () => {
 
 const Section2 = () => {
   return (
-    <div className="border-t border-amber-200 dark:border-gray-700 pt-8">
+    <div className="border-t border-blue-200 dark:border-gray-700 pt-8">
       <div className="flex flex-col lg:flex-row items-center justify-between space-y-6 lg:space-y-0">
         {/* Logo and Company Name */}
         <div className="flex items-center space-x-6">
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full blur-lg opacity-30"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-full blur-lg opacity-30"></div>
             <img
               className="relative w-20 h-20 lg:w-24 lg:h-24 bg-transparent rounded-full shadow-xl border-4 border-white dark:border-gray-700 transition-transform duration-300 hover:scale-110"
               alt="PlayCafe Logo"
@@ -159,11 +159,14 @@ const Section2 = () => {
             />
           </div>
           <div className="text-center lg:text-left">
-            <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent leading-tight">
-              BoardGame Cafe
+            <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent leading-tight">
+              Avalanche
             </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300 font-medium mt-2">
-              Where Games Meet Great Coffee
+            <p className="text-2xl text-gray-500 dark:text-gray-400 font-medium mt-1" style={{fontFamily: '"Noto Naskh Arabic", serif'}}>
+              الشلال
+            </p>
+            <p className="text-base text-gray-600 dark:text-gray-300 font-medium mt-1">
+              Lounge &amp; Shisha — Dortmund
             </p>
           </div>
         </div>
@@ -171,18 +174,18 @@ const Section2 = () => {
         {/* Copyright and Legal */}
         <div className="text-center lg:text-right">
           <p className="text-gray-600 dark:text-gray-400 text-sm mb-2">
-            © 2024 by Sip & Play. All rights reserved.
+            © 2025 Avalanche Lounge — الشلال. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center lg:justify-end space-x-4 text-xs text-gray-500 dark:text-gray-500">
-            <a href="/privacy" className="hover:text-amber-600 transition-colors duration-200">
+            <a href="/privacy" className="hover:text-cyan-600 transition-colors duration-200">
               Privacy Policy
             </a>
             <span>•</span>
-            <a href="/terms" className="hover:text-amber-600 transition-colors duration-200">
+            <a href="/terms" className="hover:text-cyan-600 transition-colors duration-200">
               Terms of Service
             </a>
             <span>•</span>
-            <a href="/cookies" className="hover:text-amber-600 transition-colors duration-200">
+            <a href="/cookies" className="hover:text-cyan-600 transition-colors duration-200">
               Cookie Policy
             </a>
           </div>
@@ -196,34 +199,29 @@ const Nav = () => {
   const navLinks = [
     { name: 'Home', link: '/' },
     { name: 'Events', link: '/events' },
+    { name: 'Menu', link: '/menu' },
     { name: 'Reservation', link: '/reservation' },
-    { name: 'Boardgame', link: '/boardgame' },
+    { name: 'Shisha', link: '/shisha' },
     { name: 'About', link: '/about' },
   ];
 
   const socialLinks = [
     {
       name: 'Facebook',
-      link: 'https://www.facebook.com/sipnplaynyc/',
+      link: 'https://www.facebook.com/',  // TODO: update with real link
       icon: <FaFacebook className="text-xl" />,
       color: 'hover:text-blue-600'
     },
     {
       name: 'Instagram',
-      link: 'https://www.instagram.com/sipnplaynyc/?hl=en',
+      link: 'https://www.instagram.com/',  // TODO: update with real link
       icon: <FaInstagram className="text-xl" />,
       color: 'hover:text-pink-600'
     },
     {
       name: 'TikTok',
-      link: 'https://www.tiktok.com/@sipnplaynycofficial?lang=en',
+      link: 'https://www.tiktok.com/',  // TODO: update with real link
       icon: <FaTiktok className="text-xl" />,
-      color: 'hover:text-gray-800 dark:hover:text-white'
-    },
-    {
-      name: 'GitHub',
-      link: 'https://github.com/RamakrushnaBiswal/PlayCafe',
-      icon: <FaGithub className="text-xl" />,
       color: 'hover:text-gray-800 dark:hover:text-white'
     },
   ];
@@ -241,11 +239,11 @@ const Nav = () => {
             <a
               key={index}
               href={item.link}
-              className="block text-gray-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-200 font-medium group"
+              className="block text-gray-600 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-200 font-medium group"
             >
               <span className="relative">
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-500 transition-all duration-300 group-hover:w-full"></span>
               </span>
             </a>
           ))}
@@ -268,7 +266,7 @@ const Nav = () => {
               className={`flex items-center space-x-3 text-gray-600 dark:text-gray-300 ${item.color} transition-all duration-300 group font-medium`}
               aria-label={`${item.name} - opens in a new tab`}
             >
-              <span className="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg group-hover:bg-amber-100 dark:group-hover:bg-amber-900 transition-colors duration-300">
+              <span className="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg group-hover:bg-blue-100 dark:group-hover:bg-blue-900 transition-colors duration-300">
                 {item.icon}
               </span>
               <span className="group-hover:translate-x-1 transition-transform duration-300">
@@ -287,26 +285,14 @@ const Nav = () => {
         </h3>
         <div className="space-y-4">
           <a
-            href="mailto:sipnplaynyc@gmail.com"
-            className="flex items-center space-x-3 text-gray-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-300 group font-medium"
+            href="mailto:info@avalanche-lounge.de"
+            className="flex items-center space-x-3 text-gray-600 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors duration-300 group font-medium"
           >
-            <span className="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg group-hover:bg-amber-100 dark:group-hover:bg-amber-900 transition-colors duration-300">
+            <span className="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg group-hover:bg-blue-100 dark:group-hover:bg-blue-900 transition-colors duration-300">
               <FaEnvelope className="text-lg" />
             </span>
             <span className="group-hover:translate-x-1 transition-transform duration-300">
-              sipnplaynyc@gmail.com
-            </span>
-          </a>
-          
-          <a
-            href="tel:+17189711684"
-            className="flex items-center space-x-3 text-gray-600 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-300 group font-medium"
-          >
-            <span className="p-2 bg-gray-100 dark:bg-gray-700 rounded-lg group-hover:bg-amber-100 dark:group-hover:bg-amber-900 transition-colors duration-300">
-              <FaPhone className="text-lg" />
-            </span>
-            <span className="group-hover:translate-x-1 transition-transform duration-300">
-              718-971-1684
+              info@avalanche-lounge.de
             </span>
           </a>
 
@@ -315,8 +301,16 @@ const Nav = () => {
               <FaMapMarkerAlt className="text-lg" />
             </span>
             <div>
-              <p>New York City</p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">Board Game Cafe</p>
+              <p>Am Sittardsberg, Dortmund</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">Avalanche Lounge — الشلال</p>
+              <a
+                href="https://maps.google.com/?q=Sarab+Lounge+Dortmund+Sittardsberg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-cyan-500 hover:text-cyan-400 transition-colors"
+              >
+                Open in Google Maps →
+              </a>
             </div>
           </div>
 

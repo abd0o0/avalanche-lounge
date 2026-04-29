@@ -40,7 +40,7 @@ function Landing() {
           {/* Text Content */}
           <div className="p-4 md:w-1/2 mb-6 md:mb-0 text-center md:text-left z-10 pt-14">
             <h1 className="text-5xl md:text-9xl font-bold ml-4" ref={textRef}>
-              A unique café experience awaits you
+              Where the vibe hits different
             </h1>
           </div>
           <div>
@@ -70,9 +70,14 @@ function Landing() {
           />
         </div>
         <div className="py-28 z-10">
-          <h1 className="text-[4rem] md:text-[18rem] font-bold">
-            PLAYCAFE
-          </h1>
+          <div className="text-center">
+            <h1 className="text-[4rem] md:text-[14rem] font-bold bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600 bg-clip-text text-transparent">
+              AVALANCHE
+            </h1>
+            <p className="text-2xl md:text-5xl text-gray-600 dark:text-gray-300 tracking-widest" style={{fontFamily: '"Noto Naskh Arabic", serif'}}>
+              الشلال
+            </p>
+          </div>
         </div>
       </section>
     </div>

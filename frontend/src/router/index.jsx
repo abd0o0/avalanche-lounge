@@ -28,6 +28,7 @@ import ProtectedRoute from './ProtectedRoute';
 import Profile from '../components/Pages/Dashboard';
 // import HelpAndSupport from '../components/Pages/HelpAndSupport';
 import Contributors from '../components/Contributors';
+import Shisha from '../components/Pages/Shisha';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -61,6 +62,7 @@ const router = createBrowserRouter(
 
       {/* <Route path="/help" element={<HelpAndSupport />} /> */}
       <Route path="/contributors" element={<Contributors />} />
+      <Route path="/shisha" element={<Shisha />} />
     </Route>
   )
 );
