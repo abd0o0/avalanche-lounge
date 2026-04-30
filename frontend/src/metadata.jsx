@@ -4,19 +4,19 @@ import { Helmet } from 'react-helmet';
 const Metadata = () => {
   return (
     <Helmet>
-      <title>Play Cafe - Where Board Games Meet Great Food</title>
+      <title>Play Cafe - Where Board Games Meet Great Vibes</title>
       
-      <meta name="description" content="Play Cafe offers a warm and exciting environment for board game enthusiasts to gather, relax, and enjoy great food." />
+      <meta name="description" content="Play Cafe offers a warm and exciting environment for board game enthusiasts to gather, relax, and enjoy Great Vibes." />
       
-      <meta name="keywords" content="cafe, board games, food, gaming, cafe near me, snacks, beverages, fun activities" />
+      <meta name="keywords" content="cafe, board games,  gaming, cafe near me, snacks, beverages, fun activities" />
       
       <meta name="author" content="Play Cafe" /> 
       
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       
       {/* Open Graph Tags */}
-      <meta property="og:title" content="Play Cafe - Where Board Games Meet Great Food" />
-      <meta property="og:description" content="Join us at Play Cafe for a fun and immersive experience with board games and delicious food!" />
+      <meta property="og:title" content="Play Cafe - Where Board Games Meet Great Vibes" />
+      <meta property="og:description" content="Join us at Play Cafe for a fun and immersive experience with board games and delicious drinks!" />
       <meta property="og:image" content="URL to image for sharing" /> 
       <meta property="og:url" content="https://play-cafe.vercel.app" />
       <meta property="og:type" content="website" />
@@ -24,8 +24,8 @@ const Metadata = () => {
       
       {/* Twitter Card Tags */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Play Cafe - Where Board Games Meet Great Food" />
-      <meta name="twitter:description" content="Play Cafe offers a warm and exciting environment for board game enthusiasts to gather, relax, and enjoy great food." />
+      <meta name="twitter:title" content="Play Cafe - Where Board Games Meet Great Vibes" />
+      <meta name="twitter:description" content="Play Cafe offers a warm and exciting environment for board game enthusiasts to gather, relax, and enjoy Great Vibes." />
       <meta name="twitter:image" content="URL to image for sharing" /> 
       <meta name="twitter:site" content="@YourTwitterHandle" /> 
       
@@ -42,3 +42,4 @@ const Metadata = () => {
 };
 
 export default Metadata;
+

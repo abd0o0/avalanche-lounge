@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from '../../i18n/useTranslation.jsx';
 import MainHOC from '../MainHOC';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
 
 function Reservation() {
   const { t } = useTranslation();
@@ -30,23 +31,38 @@ function Reservation() {
     e.preventDefault();
     setLoading(true);
     setStatus(null);
+
     try {
-      // Try to send to backend; gracefully handle if backend is not running
-      const res = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000'}/api/reservation/create`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(form),
-        }
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+      const templateParams = {
+        first_name: form.firstName,
+        last_name: form.lastName,
+        guests: form.guests,
+        date: form.date,
+        time: form.time,
+        email: form.email,
+        message: form.message,
+      };
+
+      await emailjs.send(
+        serviceId,
+        'template_onk11zd',
+        templateParams,
+        publicKey
       );
-      if (res.ok) {
-        setStatus('success');
-        setForm({ firstName: '', lastName: '', guests: '', date: '', time: '', email: '', message: '' });
-      } else {
-        setStatus('error');
-      }
-    } catch {
+
+      await emailjs.send(
+        serviceId,
+        'template_j6uc3nx',
+        templateParams,
+        publicKey
+      );
+
+      setStatus('success');
+      setForm({ firstName: '', lastName: '', guests: '', date: '', time: '', email: '', message: '' });
+    } catch (err) {
+      console.error('EmailJS error:', err);
       setStatus('error');
     } finally {
       setLoading(false);

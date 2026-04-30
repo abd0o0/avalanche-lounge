@@ -30,7 +30,7 @@ export default function Content() {
                 </div>
               </div>
               <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-5">
-                Your premium lounge in Essen. Shisha, cocktails, food &amp; unforgettable nights.
+                Your premium lounge in Essen. Shisha, cocktails &amp; unforgettable nights.
               </p>
               {/* Social icons */}
               <div className="flex gap-3">
@@ -171,3 +171,4 @@ const NewsletterMini = () => {
     </div>
   );
 };
+

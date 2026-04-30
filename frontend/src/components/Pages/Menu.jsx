@@ -25,7 +25,7 @@ function Menu() {
             {t('menu.title') || 'Our Menu'}
           </h1>
           <p className="text-gray-300 text-base max-w-xl mx-auto">
-            {t('menu.subtitle') || 'Cocktails, mocktails, coffee, food — and of course, premium shisha.'}
+            {t('menu.subtitle') || 'cocktails, mocktails, coffee — and of course, premium shisha.'}
           </p>
           <div className="mt-8 flex justify-center">
             <FaChevronDown className="text-cyan-400 animate-bounce" size={20} />
@@ -46,3 +46,4 @@ function Menu() {
 }
 
 export default MainHOC(Menu);
+
