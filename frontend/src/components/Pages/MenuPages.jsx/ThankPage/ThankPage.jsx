@@ -43,7 +43,7 @@ const ThankPage = () => (
           </div>
         </div>
 
-        <p className="text-gray-500 text-xs">Am Sittardsberg · Dortmund</p>
+        <p className="text-gray-500 text-xs">Kastanienallee 93, Essen</p>
       </div>
 
       <div className="w-12 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />

@@ -47,9 +47,7 @@ function Reservation() {
         setStatus('error');
       }
     } catch {
-      // Backend offline — still show success (form is a contact request)
-      setStatus('success');
-      setForm({ firstName: '', lastName: '', guests: '', date: '', time: '', email: '', message: '' });
+      setStatus('error');
     } finally {
       setLoading(false);
     }
