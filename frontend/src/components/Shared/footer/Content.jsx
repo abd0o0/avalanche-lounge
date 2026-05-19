@@ -38,9 +38,9 @@ export default function Content() {
               {/* Social icons */}
               <div className="flex gap-3">
                 {[
-                  { icon: <FaInstagram />, href: 'https://instagram.com/', label: 'Instagram' },
+                  { icon: <FaInstagram />, href: 'https://www.instagram.com/avalanche.lounge/', label: 'Instagram' },
                   { icon: <FaFacebook />, href: 'https://facebook.com/', label: 'Facebook' },
-                  { icon: <FaTiktok />, href: 'https://tiktok.com/', label: 'TikTok' },
+                  { icon: <FaTiktok />, href: 'https://www.tiktok.com/@avalanche.essen', label: 'TikTok' },
                 ].map(({ icon, href, label }) => (
                   <a
                     key={label}
