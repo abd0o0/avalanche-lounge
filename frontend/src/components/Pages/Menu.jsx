@@ -19,7 +19,7 @@ function Menu() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-white dark:to-gray-950" />
         <div className="relative z-10 pt-36 pb-16 px-6 text-center">
           <p className="text-cyan-400 text-xs tracking-[0.4em] uppercase font-semibold mb-3">
-            {t('brand.name')} � {t('brand.slogan')}
+            {t('brand.name')} {t('brand.slogan')}
           </p>
           <h1 className="text-5xl md:text-8xl font-bold text-white mb-3 tracking-tight">
             {t('menu.title') || 'Our Menu'}
