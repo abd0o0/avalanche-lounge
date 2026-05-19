@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import lounge from '../../assets/avalanche/lounge.jpg';
 import cocktails from '../../assets/avalanche/cocktails.jpg';
-import food from '../../assets/avalanche/food.jpg';
+import wine from '../../assets/avalanche/wine.jpg';
 import drinks from '../../assets/avalanche/drinks.jpg';
+import shishaPic from '../../assets/avalanche/Shisha.png';
+import food from '../../assets/avalanche/food.jpg';
 import { useTranslation } from '../../i18n/useTranslation.jsx';
 
 const fadeUp = {
@@ -34,7 +36,7 @@ function Landing() {
 
         <motion.div initial={{ opacity: 0, x: -80, rotate: -5 }} animate={{ opacity: 1, x: 0, rotate: -5 }} transition={{ delay: 1.2, duration: 0.8 }}
           className="absolute left-8 bottom-1/4 hidden lg:block w-44 rounded-2xl overflow-hidden shadow-2xl border border-white/20">
-          <img src={drinks} alt="" className="w-full h-28 object-cover" />
+          <img src={shishaPic} alt="" className="w-full h-28 object-cover" />
           <div className="bg-black/80 px-3 py-2">
             <p className="text-xs text-cyan-400 font-semibold">{t('home.offers.shisha.title')}</p>
             <p className="text-white text-xs">{t('home.offers.shisha.tag')}</p>
@@ -88,7 +90,7 @@ function Landing() {
               className="absolute right-0 bottom-8 w-1/2 h-2/5 object-cover rounded-2xl shadow-2xl border-4 border-white dark:border-gray-950"
             />
             <div className="absolute -bottom-4 left-8 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-2xl px-5 py-3 shadow-xl">
-              <p className="text-xs font-semibold tracking-wider uppercase">Open until 5am on weekends</p>
+              <p className="text-xs font-semibold tracking-wider uppercase">{t('home.openNote')}</p>
             </div>
           </div>
           <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}
@@ -99,20 +101,6 @@ function Landing() {
             </h2>
             <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed mb-6">{t('home.aboutText')}</p>
             <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed mb-8">{t('home.aboutText2')}</p>
-            <div className="grid grid-cols-3 gap-4 mb-8">
-              <div className="text-center p-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10">
-                <p className="text-2xl font-bold text-blue-600 dark:text-cyan-400">8+</p>
-                <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">{t('home.offers.shisha.title')}</p>
-              </div>
-              <div className="text-center p-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10">
-                <p className="text-2xl font-bold text-blue-600 dark:text-cyan-400">20+</p>
-                <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">{t('home.offers.cocktails.title')}</p>
-              </div>
-              <div className="text-center p-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10">
-                <p className="text-2xl font-bold text-blue-600 dark:text-cyan-400">5am</p>
-                <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">{t('openingHours.friSat')}</p>
-              </div>
-            </div>
             <Link to="/reservation" className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-xl hover:scale-105 transition-transform">
               {t('home.reserve')} →
             </Link>
@@ -131,9 +119,9 @@ function Landing() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[  
-              { img: drinks, ...t('home.offers.shisha', { returnObjects: true }) },
+              { img: wine, ...t('home.offers.alcoholicDrinks', { returnObjects: true }) },
               { img: cocktails, ...t('home.offers.cocktails', { returnObjects: true }) },
-              { img: food, ...t('home.offers.food', { returnObjects: true }) },
+              { img: shishaPic, ...t('home.offers.shisha', { returnObjects: true }) },
             ].map(({ img, title, desc, tag }, i) => (
               <motion.div key={title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }} viewport={{ once: true }}

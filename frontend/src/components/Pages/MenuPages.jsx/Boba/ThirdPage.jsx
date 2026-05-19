@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import bg from '../../../../assets/avalanche/mocktails.jpg';
 
 const MI = ({ name, arabic, price, desc }) => (
@@ -32,20 +32,23 @@ const ThirdPage = () => (
       </div>
       <div className="flex-1 overflow-hidden">
         <div className="mb-3">
-          <ST en="Mocktails" ar="موكتيلات" />
-          <MI name="Virgin Mojito" arabic="موهيتو" price="€6.00" desc="Mint, lime, soda" />
-          <MI name="Waterfall ★" arabic="الشلال" price="€6.50" desc="Watermelon, mint, lemon — our signature" />
-          <MI name="Tropical Bliss" arabic="نعيم استوائي" price="€6.50" desc="Mango, passion fruit, pineapple" />
-          <MI name="Berry Breeze" arabic="نسيم التوت" price="€6.00" desc="Mixed berries, honey, soda" />
-          <MI name="Lemon Ginger Fizz" price="€5.50" desc="Fresh lemon, ginger, sparkling" />
-          <MI name="Rose Sunrise" arabic="شروق الورد" price="€6.50" desc="Rose syrup, orange, grenadine" />
+          <ST en="Frische Safte" />
+          <MI name="Mango" price="7,00 EUR" />
+          <MI name="Erdbeere" price="7,00 EUR" />
+          <MI name="Orange" price="7,00 EUR" />
+          <MI name="Ananas" price="7,00 EUR" />
+          <MI name="Maracuya" price="7,00 EUR" />
+          <MI name="Polo (Zitrone & Minze)" price="7,00 EUR" />
+          <MI name="Limonade" price="7,00 EUR" />
+          <MI name="Ananas-Kiwi" price="7,00 EUR" />
         </div>
         <div>
-          <ST en="Fresh Juices" ar="عصائر طازجة" />
-          <MI name="Orange" arabic="برتقال" price="€4.50" desc="Freshly squeezed" />
-          <MI name="Mango" arabic="مانجو" price="€5.00" />
-          <MI name="Lemonade" arabic="ليمونادة" price="€4.50" desc="Classic or mint" />
-          <MI name="Mixed Fruit" arabic="فواكه مشكلة" price="€5.50" />
+          <ST en="Sommersafte" />
+          <MI name="Mojito" price="7,00 EUR" />
+          <MI name="Erdbeer Mojito" price="7,00 EUR" />
+          <MI name="Hawaii Mojito" price="7,00 EUR" />
+          <MI name="Vimlo Red Bull" price="6,00 EUR" />
+          <MI name="Ipanema" price="7,00 EUR" />
         </div>
       </div>
     </div>

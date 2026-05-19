@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import bg from '../../../../assets/avalanche/drinks.jpg';
 
 const MI = ({ name, arabic, price, desc }) => (
@@ -31,17 +31,21 @@ const FourthPage = () => (
         <div className="w-12 h-px bg-cyan-400/60 mx-auto mt-1" />
       </div>
       <div className="flex-1 overflow-hidden">
-        <ST en="Flavours" ar="النكهات" />
-        <MI name="Double Apple" arabic="تفاح مزدوج" price="€14" desc="Classic — bestseller" />
-        <MI name="Grape Mint" arabic="عنب بالنعناع" price="€14" />
-        <MI name="Watermelon Ice" arabic="بطيخ بالثلج" price="€15" />
-        <MI name="Blue Mist" arabic="ضباب أزرق" price="€15" desc="Blueberry & anise" />
-        <MI name="Lemon Mint" arabic="ليمون بالنعناع" price="€14" />
-        <MI name="Rose Gold" arabic="ورد ذهبي" price="€16" desc="Floral & vanilla" />
-        <MI name="Guava Passion" arabic="جوافة وباشن" price="€16" />
-        <MI name="Melon Breeze" arabic="نسيم البطيخ" price="€14" />
+        <ST en="Shisha" />
+        <MI name="Avalanche" price="13,00 EUR" />
+        <MI name="Cold Peach" price="13,00 EUR" />
+        <MI name="Cold Melon" price="13,00 EUR" />
+        <MI name="Baja Blue" price="13,00 EUR" />
+        <MI name="Cinderella" price="13,00 EUR" />
+        <MI name="Lemon Fresh" price="13,00 EUR" />
+        <MI name="Love 66" price="13,00 EUR" />
+        <MI name="Zitrone Minze" price="13,00 EUR" />
+        <MI name="Doppelapfel" price="13,00 EUR" />
+        <MI name="Kaugummi Minze" price="13,00 EUR" />
+        <MI name="Traube" price="13,00 EUR" />
+        <MI name="Wassermelone" price="13,00 EUR" />
         <div className="mt-2 px-3 py-1.5 rounded-lg bg-white/10 backdrop-blur-sm border border-cyan-400/20">
-          <p className="text-cyan-200 text-xs text-center">🪬 Coal refreshes included · Private bookings welcome</p>
+          <p className="text-cyan-200 text-xs text-center">Babli: 16,00 EUR | Fawakeh: 18,00 EUR</p>
         </div>
       </div>
     </div>

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { FaFacebook, FaInstagram, FaTiktok, FaEnvelope, FaMapMarkerAlt, FaPhone, FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { useTranslation } from '../../../i18n/useTranslation';
 import loungeBg from '../../../assets/avalanche/lounge.jpg';
 import playcafeLogo from '../../../assets/Logo/playcafe.png';
 
 export default function Content() {
+  const { t } = useTranslation();
   return (
     <div className="relative overflow-hidden">
       {/* Background image with heavy dark overlay */}
@@ -24,13 +26,14 @@ export default function Content() {
               <div className="mb-4">
                 <div className="flex items-center justify-between gap-3">
                   <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent leading-tight min-w-0">
-                    Avalanche
+                    {t('brand.name')}
                   </h2>
                   <img src={playcafeLogo} alt="PlayCafe logo" className="h-20 w-20 md:h-24 md:w-24 lg:h-28 lg:w-28 rounded-full object-cover border-2 border-cyan-200 dark:border-cyan-500/40 shrink-0" />
                 </div>
+                <p className="text-cyan-600 dark:text-cyan-400 font-medium text-sm mt-3">{t('home.cta')}</p>
               </div>
               <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-5">
-                Your premium lounge in Essen. Shisha, cocktails &amp; unforgettable nights.
+                {t('footer.brandTagline')}
               </p>
               {/* Social icons */}
               <div className="flex gap-3">
@@ -56,14 +59,14 @@ export default function Content() {
             {/* Quick links */}
             <div>
               <h3 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-widest mb-4">
-                Navigation
+                {t('footer.navTitle')}
               </h3>
               <ul className="space-y-2">
                 {[
-                  { name: 'Home', path: '/' },
-                  { name: 'Events', path: '/events' },
-                  { name: 'Menu', path: '/menu' },
-                  { name: 'Reservation', path: '/reservation' },
+                  { name: t('nav.home'), path: '/' },
+                  { name: t('nav.events'), path: '/events' },
+                  { name: t('nav.menu'), path: '/menu' },
+                  { name: t('nav.reservation'), path: '/reservation' },
                 ].map(({ name, path }) => (
                   <li key={name}>
                     <Link
@@ -81,13 +84,12 @@ export default function Content() {
             {/* Opening hours */}
             <div>
               <h3 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-widest mb-4">
-                Opening Hours
+                {t('footer.hours')}
               </h3>
               <div className="space-y-2 text-sm">
                 {[
-                  { day: 'Mon – Thu', hours: '16:00 – 02:00' },
-                  { day: 'Fri & Sat', hours: '16:00 – 05:00' },
-                  { day: 'Sunday', hours: '16:00 – 02:00' },
+                  { day: t('footer.sunThu', 'Sun – Thu'), hours: '13:00 – 01:00' },
+                  { day: t('footer.friSat'), hours: '13:00 – 03:00' },
                 ].map(({ day, hours }) => (
                   <div key={day} className="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-white/5">
                     <span className="text-gray-600 dark:text-gray-400">{day}</span>
@@ -100,7 +102,7 @@ export default function Content() {
             {/* Contact + newsletter */}
             <div>
               <h3 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-widest mb-4">
-                Contact
+                {t('footer.contact')}
               </h3>
               <div className="space-y-3 text-sm mb-6">
                 <a href="https://maps.google.com/?q=Sarab+Lounge+essen" target="_blank" rel="noopener noreferrer"
@@ -108,10 +110,15 @@ export default function Content() {
                   <FaMapMarkerAlt className="mt-0.5 shrink-0 text-cyan-500" />
                   <span>Kastanienallee 93, 45127 Essen</span>
                 </a>
-                <a href="abod.hajareen@gmail.com"
+                <a href="mailto:loungeavalanche@gmail.com"
                   className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">
                   <FaEnvelope className="shrink-0 text-cyan-500" />
-                  <span>abod.hajareen@gmail.com</span>
+                  <span>loungeavalanche@gmail.com</span>
+                </a>
+                <a href="tel:01782141914"
+                  className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors">
+                  <FaPhone className="shrink-0 text-cyan-500" />
+                  <span>01782141914</span>
                 </a>
               </div>
 
@@ -123,12 +130,12 @@ export default function Content() {
           {/* Bottom bar */}
           <div className="border-t border-gray-100 dark:border-white/5 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-500 dark:text-gray-600 text-xs">
-              © 2026 Avalanche Lounge . All rights reserved.
+              {t('footer.copyright')}
             </p>
             <div className="flex gap-5 text-xs text-gray-400 dark:text-gray-600">
-              <a href="/privacy" className="hover:text-cyan-500 transition-colors">Privacy Policy</a>
-              <a href="/terms" className="hover:text-cyan-500 transition-colors">Terms</a>
-              <a href="/reservation" className="hover:text-cyan-500 transition-colors">Reserve a Table</a>
+              <a href="/privacy" className="hover:text-cyan-500 transition-colors">{t('footer.privacy')}</a>
+              <a href="/terms" className="hover:text-cyan-500 transition-colors">{t('footer.terms')}</a>
+              <a href="/reservation" className="hover:text-cyan-500 transition-colors">{t('footer.reserve')}</a>
             </div>
           </div>
         </div>
@@ -138,6 +145,7 @@ export default function Content() {
 }
 
 const NewsletterMini = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [done, setDone] = useState(false);
 
@@ -149,21 +157,21 @@ const NewsletterMini = () => {
 
   return (
     <div>
-      <p className="text-xs text-gray-500 dark:text-gray-500 mb-2 uppercase tracking-wider">Stay updated</p>
+      <p className="text-xs text-gray-500 dark:text-gray-500 mb-2 uppercase tracking-wider">{t('footer.newsletter')}</p>
       {done ? (
-        <p className="text-cyan-600 dark:text-cyan-400 text-xs font-medium">✓ You're subscribed!</p>
+        <p className="text-cyan-600 dark:text-cyan-400 text-xs font-medium">✓ {t('footer.subscribed')}</p>
       ) : (
         <form onSubmit={handleSubmit} className="flex gap-2">
           <input
             type="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
-            placeholder="your@email.com"
+            placeholder={t('footer.newsletterPlaceholder')}
             required
             className="flex-1 min-w-0 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg px-3 py-2 text-xs text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-cyan-500"
           />
           <button type="submit"
-            className="p-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg hover:scale-105 transition-transform shrink-0">
+            className="p-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg hover:scale-105 transition-transform shrink-0" title={t('footer.newsletterSubmit')}>
             <FaArrowRight size={12} />
           </button>
         </form>

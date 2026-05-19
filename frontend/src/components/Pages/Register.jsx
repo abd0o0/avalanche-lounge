@@ -87,7 +87,7 @@ function Reservation() {
             webkitTextFillColor: 'transparent',
           }}
         >
-          Reservation
+          {t("reservation.title")}
         </h1>
 
       </div>
@@ -107,7 +107,7 @@ function Reservation() {
                 webkitTextFillColor: 'transparent',
               }}
             >
-              Contact
+              {t("footer.contact")}
             </h3>
             <div className="space-y-3 text-sm text-gray-300">
               <div className="flex items-start gap-3">
@@ -120,12 +120,12 @@ function Reservation() {
               </div>
               <div className="flex items-center gap-3">
                 <FaPhone className="text-cyan-400 shrink-0" />
-                <a href="tel:+49" className="hover:text-cyan-400 transition-colors">+49 (0)1631937607</a>
+                <a href="tel:01782141914" className="hover:text-cyan-400 transition-colors">01782141914</a>
               </div>
               <div className="flex items-center gap-3">
                 <FaEnvelope className="text-cyan-400 shrink-0" />
-                <a href="mailto:abod.hajareen@gmail.com" className="hover:text-cyan-400 transition-colors">
-                  abod.hajareen@gmail.com
+                <a href="mailto:loungeavalanche@gmail.com" className="hover:text-cyan-400 transition-colors">
+                  loungeavalanche@gmail.com
                 </a>
               </div>
             </div>
@@ -142,13 +142,12 @@ function Reservation() {
               }}
             >
               <FaClock className="text-cyan-400" style={{ webkitTextFillColor: 'initial' }} />
-              Opening Hours
+              {t("footer.hours")}
             </h3>
             <div className="space-y-2 text-sm">
               {[
-                { day: 'Monday – Thursday', hours: '16:00 – 02:00' },
-                { day: 'Friday & Saturday', hours: '16:00 – 05:00' },
-                { day: 'Sunday', hours: '16:00 – 02:00' },
+                { day: t('footer.sunThu', 'Sun \u2013 Thu'), hours: '13:00 \u2013 01:00' },
+                { day: t('footer.friSat', 'Fri & Sat'), hours: '13:00 \u2013 03:00' },
               ].map(({ day, hours }) => (
                 <div key={day} className="flex justify-between items-center border-b border-white/5 pb-2">
                   <span className="text-gray-600 dark:text-gray-400">{day}</span>
@@ -228,9 +227,9 @@ function Reservation() {
                 >
                   <option value="" disabled>{t("reservation.guestsPlaceholder")}</option>
                   {[1,2,3,4,5,6,7,8,9,10].map(n => (
-                    <option key={n} value={n} style={{ background: '#ffffff', color: '#111827' }}>{n} {n === 1 ? 'Person' : 'People'}</option>
+                    <option key={n} value={n} style={{ background: '#ffffff', color: '#111827' }}>{n} {n === 1 ? t("reservation.person", "Person") : t("reservation.people", "People")}</option>
                   ))}
-                  <option value="10+" style={{ background: '#ffffff', color: '#111827' }}>10+ (Large group)</option>
+                  <option value="10+" style={{ background: '#ffffff', color: '#111827' }}>{t("reservation.largeGroup", "10+ (Large group)")}</option>
                 </select>
               </div>
 
@@ -286,7 +285,7 @@ function Reservation() {
                   value={form.message}
                   onChange={handleChange}
                   rows={4}
-                  placeholder="Any special requests, shisha preferences, or occasion details..."
+                  placeholder={t("reservation.messagePlaceholder", "Any special requests, shisha preferences, or occasion details...")}
                 />
               </div>
 

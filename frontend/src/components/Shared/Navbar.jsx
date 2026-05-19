@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Logo from '../../assets/Logo/playcafe.png';
 import { Link, useLocation } from 'react-router-dom';
 import ThemeToggle from '../../components/ThemeToggle';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiGlobe } from 'react-icons/fi';
 import { useTranslation } from '../../i18n/useTranslation.jsx';
 
 const Navbar = () => {
@@ -75,17 +75,23 @@ const Navbar = () => {
               <ThemeToggle />
             </div>
             <Link to="/reservation" className="px-5 py-2 font-semibold text-white text-sm bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">{t('nav.reservation')}</Link>
-            <div className="ml-2">
+            <div className="relative flex items-center ml-2">
+              <div className="absolute left-3 flex items-center pointer-events-none text-cyan-600 dark:text-cyan-400">
+                <FiGlobe className="w-4 h-4" />
+              </div>
               <select
                 value={locale}
                 onChange={(e) => setLocale(e.target.value)}
-                className="h-9 rounded-lg bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 px-2 text-sm text-gray-700 dark:text-gray-300 focus:outline-none focus:border-blue-400 dark:focus:border-cyan-500"
+                className="appearance-none h-10 bg-gray-100/50 dark:bg-white/5 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-full pl-9 pr-8 text-sm font-semibold text-gray-700 dark:text-gray-200 hover:border-cyan-400 dark:hover:border-cyan-500 hover:bg-gray-100 dark:hover:bg-white/10 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300 outline-none cursor-pointer"
                 aria-label="Select language"
               >
-                <option value="en">English</option>
-                <option value="de">Deutsch</option>
-                <option value="ar">العربية</option>
+                <option value="en" className="dark:bg-gray-900">EN</option>
+                <option value="de" className="dark:bg-gray-900">DE</option>
+                <option value="ar" className="dark:bg-gray-900">AR</option>
               </select>
+              <div className="absolute right-3 flex items-center pointer-events-none text-gray-500 dark:text-gray-400">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+              </div>
             </div>
           </div>
 
@@ -113,17 +119,23 @@ const Navbar = () => {
               </Link>
             ))}
             <div className="pt-3 border-t border-white/10">
-              <div className="mb-3">
+              <div className="mb-4 relative">
+                <div className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center pointer-events-none text-cyan-400">
+                  <FiGlobe className="w-5 h-5" />
+                </div>
                 <select
                   value={locale}
                   onChange={(e) => setLocale(e.target.value)}
-                  className="w-full h-10 rounded-xl bg-white/5 border border-white/10 px-3 text-sm text-gray-200 focus:outline-none focus:border-cyan-500"
+                  className="appearance-none w-full h-12 bg-white/5 border border-white/10 rounded-xl pl-11 pr-4 text-sm font-semibold text-gray-200 hover:bg-white/10 focus:outline-none focus:border-cyan-500 focus:bg-white/10 transition-all cursor-pointer"
                   aria-label="Select language"
                 >
-                  <option value="en">English</option>
-                  <option value="de">Deutsch</option>
-                  <option value="ar">العربية</option>
+                  <option value="en" className="bg-gray-900">English (EN)</option>
+                  <option value="de" className="bg-gray-900">Deutsch (DE)</option>
+                  <option value="ar" className="bg-gray-900">العربية (AR)</option>
                 </select>
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center pointer-events-none text-gray-400">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
               </div>
               <Link to="/reservation" onClick={() => setIsMenuOpen(false)} className="block text-center px-4 py-3 font-semibold text-white text-sm bg-gradient-to-r from-blue-500 to-cyan-600 rounded-xl shadow-lg">{t('nav.reservation')}</Link>
             </div>

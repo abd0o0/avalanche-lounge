@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import bg from '../../../../assets/avalanche/food.jpg';
 
 const MI = ({ name, arabic, price, desc }) => (
@@ -27,27 +27,26 @@ const FifthPage = () => (
     <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/70 to-black/88" />
     <div className="relative z-10 h-full flex flex-col p-3 md:p-5 overflow-hidden">
       <div className="text-center mb-3">
-        <h1 className="text-base md:text-2xl font-bold text-white tracking-widest uppercase"> Bites</h1>
+        <h1 className="text-base md:text-2xl font-bold text-white tracking-widest uppercase"> Desserts</h1>
         <div className="w-12 h-px bg-cyan-400/60 mx-auto mt-1" />
       </div>
       <div className="flex-1 overflow-hidden">
         <div className="mb-3">
-          <ST en="Starters" ar="مقبلات" />
-          <MI name="Hummus & Bread" arabic="حمص" price="€6.50" desc="Creamy with warm pita" />
-          <MI name="Chicken Wings" arabic="أجنحة دجاج" price="€9.00" desc="Crispy, choice of sauce" />
-          <MI name="Nachos" price="€7.50" desc="Cheese, jalapeño, salsa" />
-          <MI name="Loaded Fries" arabic="بطاطس محملة" price="€8.00" desc="Cheese, chili, sour cream" />
+          <ST en="Obstsalate" />
+          <MI name="Tropikal" price="8,50 EUR" />
+          <MI name="Nutella" price="8,50 EUR" />
+          <MI name="Lotus" price="8,50 EUR" />
+          <MI name="Bueno" price="8,50 EUR" />
         </div>
         <div>
-          <ST en="Mains" ar="أطباق رئيسية" />
-          <MI name="Halloumi Wrap" arabic="رول حلوم" price="€9.50" desc="Grilled, tahini, greens" />
-          <MI name="Caesar Salad" arabic="سلطة سيزر" price="€10.00" desc="Chicken, romaine, parmesan" />
-          <MI name="Pasta Arrabiata" arabic="باستا" price="€10.00" desc="Spicy tomato, al dente" />
-          <MI name="Wagyu Burger" arabic="برغر واغيو" price="€14.00" desc="Truffle mayo, brioche" />
+          <ST en="Eiscreme" />
+          <MI name="Arabisches Eis Mit Sahne" price="7,00 EUR" />
+          <MI name="Gemischte Eis Vanille Schokolade Erdbeer" price="7,00 EUR" />
+          <MI name="Kasita" price="7,00 EUR" />
+          <MI name="Kase Dessert Eiscreme" price="7,00 EUR" />
         </div>
       </div>
     </div>
   </div>
 );
 export default FifthPage;
-

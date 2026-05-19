@@ -1,5 +1,5 @@
-import React from 'react';
-import bg from '../../../../assets/avalanche/dessert.jpg';
+﻿import React from 'react';
+import bg from '../../../../assets/avalanche/mocktails.jpg';
 
 const MI = ({ name, arabic, price, desc }) => (
   <div className="flex justify-between items-start border-b border-white/15 pb-1.5 mb-1.5">
@@ -27,25 +27,24 @@ const SixthPage = () => (
     <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/70 to-black/88" />
     <div className="relative z-10 h-full flex flex-col p-3 md:p-5 overflow-hidden">
       <div className="text-center mb-3">
-        <h1 className="text-base md:text-2xl font-bold text-white tracking-widest uppercase">Soft Drinks &amp; Shakes</h1>
+        <h1 className="text-base md:text-2xl font-bold text-white tracking-widest uppercase">Shakes &amp; Kaiser</h1>
         <div className="w-12 h-px bg-cyan-400/60 mx-auto mt-1" />
       </div>
       <div className="flex-1 overflow-hidden">
         <div className="mb-3">
-          <ST en="Soft Drinks" ar="مشروبات غازية" />
-          <MI name="Coca-Cola" price="€3.00" />
-          <MI name="Coca-Cola Zero" price="€3.00" />
-          <MI name="Fanta / Sprite" price="€3.00" />
-          <MI name="Red Bull" price="€4.50" />
-          <MI name="Still / Sparkling Water" arabic="ماء" price="€2.50" />
+          <ST en="Milchshake" />
+          <MI name="Vanille Shake" price="8,00 EUR" />
+          <MI name="Choco Shake" price="8,00 EUR" />
+          <MI name="Oreo Shake" price="8,00 EUR" />
+          <MI name="Erdbeer Shake" price="8,00 EUR" />
         </div>
         <div>
-          <ST en="Milkshakes & Smoothies" ar="ميلك شيك وسموذي" />
-          <MI name="Vanilla Shake" arabic="فانيليا" price="€6.00" />
-          <MI name="Chocolate Shake" arabic="شوكولاتة" price="€6.00" />
-          <MI name="Strawberry Shake" arabic="فراولة" price="€6.00" />
-          <MI name="Mango Smoothie" arabic="سموذي مانجو" price="€6.50" desc="Mango, banana, orange" />
-          <MI name="Berry Blast" arabic="بيري بلاست" price="€6.50" desc="Mixed berries, yogurt" />
+          <ST en="Kaiser Cocktails" />
+          <MI name="Avalanche Kaiser" price="10,00 EUR" />
+          <MI name="Kaiser Erdbeer" price="9,50 EUR" />
+          <MI name="Kaiser des Mangos" price="9,50 EUR" />
+          <MI name="Sahne Mix" price="9,50 EUR" />
+          <MI name="Avocado Sahne Honig & Nusse" price="9,50 EUR" />
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@
     "reservation": "Reservation"
   },
   "home": {
-    "cta": "Where the vibe hits different",
+    "cta": "The Night Start Here",
     "reserve": "Reserve a Table",
     "viewMenu": "View Menu",
     "aboutTitle": "About Us",
@@ -22,25 +22,24 @@
     "offersTitle": "What We Offer",
     "experienceTitle": "Experience Avalanche",
     "ctaBannerTitle": "Ready for a night out?",
-    "ctaBannerText": "Reserve your table now \u2014 or just show up and let the night take you.",
+    "ctaBannerText": "Reserve your table now \u2014 or just show up and let the night take you.",    "openNote": "Open until 3am on weekends",
     "offers": {
-      "shisha": {
-        "title": "Premium Shisha",
-        "arabic": "\u0634\u064a\u0634\u0629",
-        "desc": "8+ flavours. Premium tobacco. Coal refreshes included.",
-        "tag": "From \u20ac14"
+      "alcoholicDrinks": {
+        "title": "Alcoholic Drinks",
+        "desc": "Premium selection of wines, beers, and spirits.",
+        "tag": "From €7"
       },
       "cocktails": {
-        "title": "Cocktails & Bar",
-        "arabic": "\u0628\u0627\u0631 \u0648\u0643\u0648\u0643\u062a\u064a\u0644",
+        "title": "Cocktails",
+        "arabic": "كوكتيل",
         "desc": "Signature creations and classic favourites. Mixed to perfection.",
-        "tag": "From \u20ac7.50"
+        "tag": "From €8"
       },
-      "food": {
-        "title": "Kitchen & Bites",
-        "arabic": "\u0645\u0637\u0628\u062e",
-        "desc": "From loaded fries to wagyu burgers. Flavor that hits.",
-        "tag": "From \u20ac6.50"
+      "shisha": {
+        "title": "Premium Shisha",
+        "arabic": "شيشة",
+        "desc": "8+ flavours. Premium tobacco. Coal refreshes included.",
+        "tag": "From 13€"
       }
     }
   },
@@ -112,7 +111,11 @@
     "sending": "Sending...",
     "success": "Request sent! We'll confirm your reservation shortly.",
     "error": "Something went wrong. Please try again or call us directly.",
-    "confirmation": "We'll confirm your reservation by email within 24 hours."
+    "confirmation": "We'll confirm your reservation by email within 24 hours.",
+    "person": "Person",
+    "people": "People",
+    "largeGroup": "10+ (Large group)",
+    "messagePlaceholder": "Any special requests, shisha preferences, or occasion details..."
   },
   "openingHours": {
     "monThu": "Mon \u2013 Thu: 16:00 \u2013 02:00",
@@ -120,17 +123,21 @@
     "sunday": "Sunday: 16:00 \u2013 02:00"
   },
   "footer": {
+    "brandTagline": "Your premium lounge in Essen. Shisha, cocktails & unforgettable nights.",
     "newsletter": "Stay Updated",
     "newsletterPlaceholder": "Enter email",
     "newsletterSubmit": "Subscribe",
     "subscribed": "You're subscribed!",
     "navTitle": "Navigation",
     "hours": "Opening Hours",
+    "sunThu": "Sun – Thu",
+    "friSat": "Fri & Sat",
+    "sunday": "Sunday",
     "contact": "Contact",
     "privacy": "Privacy Policy",
     "terms": "Terms",
     "reserve": "Reserve a Table",
-    "copyright": "All rights reserved."
+    "copyright": "© 2026 Avalanche Lounge . All rights reserved."
   },
   "days": [
     "Sun",
