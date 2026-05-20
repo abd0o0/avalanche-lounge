@@ -63,9 +63,7 @@ function MyBook() {
         <Page number={categories.length + 2}>
           <ThankPage />
         </Page>
-        <Page number={categories.length + 3}>
-          <Cover coverImg={coverImg} />
-        </Page>
+
       </HTMLFlipBook>
       </div>
     </div>
