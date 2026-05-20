@@ -146,8 +146,8 @@ function Reservation() {
             </h3>
             <div className="space-y-2 text-sm">
               {[
-                { day: t('footer.sunThu', 'Sun \u2013 Thu'), hours: '13:00 \u2013 01:00' },
-                { day: t('footer.friSat', 'Fri & Sat'), hours: '13:00 \u2013 03:00' },
+                { day: t('footer.sunThu', 'Sun – Thu'), hours: '13:00 – 01:00' },
+                { day: t('footer.friSat', 'Fri & Sat'), hours: '13:00 – 03:00' },
               ].map(({ day, hours }) => (
                 <div key={day} className="flex justify-between items-center border-b border-white/5 pb-2">
                   <span className="text-gray-600 dark:text-gray-400">{day}</span>

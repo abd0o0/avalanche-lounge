@@ -36,10 +36,10 @@ const ThankPage = () => {
             </p>
             <div className="space-y-1 text-xs">
               <div className="flex justify-between text-gray-300">
-                <span>{t('footer.sunThu', 'Sun \u2013 Thu')}</span><span>13:00 \u2013 01:00</span>
+                <span>{t('footer.sunThu', 'Sun – Thu')}</span><span>13:00 – 01:00</span>
               </div>
               <div className="flex justify-between text-gray-300">
-                <span>{t('footer.friSat', 'Fri & Sat')}</span><span>13:00 \u2013 03:00</span>
+                <span>{t('footer.friSat', 'Fri & Sat')}</span><span>13:00 – 03:00</span>
               </div>
             </div>
           </div>

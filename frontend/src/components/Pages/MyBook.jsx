@@ -47,7 +47,7 @@ function MyBook() {
           maxHeight={650}
           showCover={true}
           maxShadowOpacity={0.5}
-          mobileScrollSupport={true}
+          mobileScrollSupport={false}
           className="mx-auto"
         >
           <Page number={1}>
