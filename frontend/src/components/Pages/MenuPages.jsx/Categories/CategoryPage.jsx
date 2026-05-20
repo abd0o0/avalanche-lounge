@@ -21,7 +21,7 @@ const ItemRow = ({ item, locale }) => (
 
 const CategoryPage = ({ category }) => {
   const { locale } = useTranslation();
-  const touchStartRef = useRef({ x: 0, y: 0 });
+  const touchStartRef = useRef({ x: 0, y: 0, time: 0 });
   const isScrollingRef = useRef(false);
   const scrollContainerRef = useRef(null);
 
@@ -34,6 +34,7 @@ const CategoryPage = ({ category }) => {
       touchStartRef.current = {
         x: e.touches[0].clientX,
         y: e.touches[0].clientY,
+        time: Date.now(),
       };
       isScrollingRef.current = false; // Reset on new touch
     }
@@ -43,9 +44,10 @@ const CategoryPage = ({ category }) => {
     if (e.touches && e.touches.length > 0 && touchStartRef.current) {
       const deltaX = Math.abs(e.touches[0].clientX - touchStartRef.current.x);
       const deltaY = Math.abs(e.touches[0].clientY - touchStartRef.current.y);
+      const touchDuration = Date.now() - touchStartRef.current.time;
 
-      // Once we detect vertical scrolling (> 10px), lock it in
-      if (deltaY > 10) {
+      // If touch is held longer than 150ms AND moves vertically > 10px, it's a scroll
+      if (touchDuration > 150 && deltaY > 10) {
         isScrollingRef.current = true;
       }
 
