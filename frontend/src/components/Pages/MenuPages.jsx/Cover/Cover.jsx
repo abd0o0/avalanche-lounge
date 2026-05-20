@@ -1,8 +1,13 @@
 ﻿import React from 'react';
 import lounge from '../../../../assets/avalanche/lounge.jpg';
 
-const Cover = () => (
-  <div className="h-full w-full relative overflow-hidden">
+const Cover = () => {
+  const handleTouchMove = (e) => {
+    e.stopPropagation();
+  };
+
+  return (
+  <div className="h-full w-full relative overflow-hidden" onTouchMove={handleTouchMove}>
     <img
       src={lounge}
       alt="Avalanche Lounge"
@@ -43,6 +48,7 @@ const Cover = () => (
       </div>
     </div>
   </div>
-);
+  );
+};
 
 export default Cover;

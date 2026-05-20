@@ -5,8 +5,12 @@ import { useTranslation } from '../../../../i18n/useTranslation.jsx';
 const ThankPage = () => {
   const { t } = useTranslation();
 
+  const handleTouchMove = (e) => {
+    e.stopPropagation();
+  };
+
   return (
-    <div className="h-full w-full relative overflow-hidden">
+    <div className="h-full w-full relative overflow-hidden" onTouchMove={handleTouchMove}>
       <img src={loungeBg} alt="Avalanche Lounge" className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/40" />
 
