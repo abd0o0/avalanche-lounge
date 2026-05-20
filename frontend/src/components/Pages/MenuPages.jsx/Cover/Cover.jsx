@@ -22,9 +22,9 @@ const Cover = () => {
       const deltaY = Math.abs(e.touches[0].clientY - touchStartRef.current.y);
       const touchDuration = Date.now() - touchStartRef.current.time;
 
-      // If vertical movement is dominant AND touch is held > 150ms, it's a scroll
-      // This prevents page flip even if you sweep at an angle
-      if (deltaY > deltaX && touchDuration > 150) {
+      // If touch is held > 150ms (not a quick tap) AND vertical movement is greater than horizontal
+      // then it's a scroll - block page flip
+      if (touchDuration > 150 && deltaY > deltaX) {
         isScrollingRef.current = true;
       }
 
