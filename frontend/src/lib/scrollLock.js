@@ -4,7 +4,7 @@ export function markScroll() {
   lastScrollAt = Date.now();
 }
 
-export function isRecentScroll(ms = 800) {
+export function isRecentScroll(ms = 400) {
   return Date.now() - lastScrollAt < ms;
 }
 
