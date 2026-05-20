@@ -50,9 +50,10 @@ const CategoryPage = ({ category }) => {
         isScrollingRef.current = true;
       }
 
-      // If scroll is locked, always block page flip
+      // If scroll is locked, block page flip and prevent default
       if (isScrollingRef.current) {
         e.stopPropagation();
+        // Don't preventDefault on scrollable div - let it scroll normally
       }
     }
   };

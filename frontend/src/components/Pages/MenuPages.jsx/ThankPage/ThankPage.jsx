@@ -28,9 +28,10 @@ const ThankPage = () => {
         isScrollingRef.current = true;
       }
 
-      // If scroll is locked, always block page flip
+      // If scroll is locked, prevent page flip completely
       if (isScrollingRef.current) {
         e.stopPropagation();
+        e.preventDefault();
       }
     }
   };
