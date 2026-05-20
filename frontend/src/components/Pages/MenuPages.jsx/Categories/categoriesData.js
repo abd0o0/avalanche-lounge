@@ -21,9 +21,9 @@ export const categories = [
     },
     image: icedCoffeeImg,
     items: [
-      { name: { en: 'Frappe', de: 'Frappe', ar: 'فرابيه' }, price: '4,50 EUR', tags: ['bestSeller'] },
+      { name: { en: 'Frappe', de: 'Frappe', ar: 'فرابيه' }, price: '4,50 EUR' },
       { name: { en: 'Fredo Cappuccino', de: 'Fredo Cappuccino', ar: 'فريدو كابتشينو' }, price: '4,50 EUR', tags: ['signature'] },
-      { name: { en: 'Frappuccino', de: 'Frappuccino', ar: 'فرابتشينو' }, price: '4,50 EUR', tags: ['bestSeller'] },
+      { name: { en: 'Frappuccino', de: 'Frappuccino', ar: 'فرابتشينو' }, price: '4,50 EUR' },
       { name: { en: 'Eiscafe-Karamell', de: 'Eiscafe-Karamell', ar: 'ايس كافيه كراميل' }, price: '4,50 EUR', tags: ['signature'] },
       { name: { en: 'Eiscafe-Schokolade', de: 'Eiscafe-Schokolade', ar: 'ايس كافيه شوكولاتة' }, price: '4,50 EUR' },
     ],
@@ -97,7 +97,7 @@ export const categories = [
     items: [
       { name: { en: 'Vanilla Shake', de: 'Vanille Shake', ar: 'فانيلا شيك' }, price: '8,00 EUR' },
       { name: { en: 'Chocolate Shake', de: 'Choco Shake', ar: 'شوكو شيك' }, price: '8,00 EUR' },
-      { name: { en: 'Oreo Shake', de: 'Oreo Shake', ar: 'اوريو شيك' }, price: '8,00 EUR', tags: ['bestSeller'] },
+      { name: { en: 'Oreo Shake', de: 'Oreo Shake', ar: 'اوريو شيك' }, price: '8,00 EUR' },
       { name: { en: 'Strawberry Shake', de: 'Erdbeer Shake', ar: 'فريز شيك' }, price: '8,00 EUR' },
     ],
   },
@@ -111,7 +111,7 @@ export const categories = [
     },
     image: specialCocktailsImg,
     items: [
-      { name: { en: 'Avalanche Cocktail', de: 'Avalanche Cocktail', ar: 'افلانش كوكتيل' }, price: '9,00 EUR', desc: { en: 'Mango, strawberry, maracuja, pineapple, orange, kiwi', de: 'Mango, Erdbeere, Maracuja, Ananas, Orange, Kiwi', ar: 'مانجو، فراولة، ماركوجا، أناناس، برتقال، كيوي' }, tags: ['nonAlcoholic', 'signature', 'bestSeller'] },
+      { name: { en: 'Avalanche Cocktail', de: 'Avalanche Cocktail', ar: 'افلانش كوكتيل' }, price: '9,00 EUR', desc: { en: 'Mango, strawberry, maracuja, pineapple, orange, kiwi', de: 'Mango, Erdbeere, Maracuja, Ananas, Orange, Kiwi', ar: 'مانجو، فراولة، ماركوجا، أناناس، برتقال، كيوي' }, tags: ['nonAlcoholic', 'signature'] },
       { name: { en: 'Hawaii', de: 'Hawaii', ar: 'هاواي' }, price: '8,00 EUR', desc: { en: 'Pineapple, strawberry juice, mango, strawberry pieces, honey, cream', de: 'Ananas, Erdbeersaft, Mango, Erdbeerstuecke, Honig, Sahne', ar: 'أناناس، عصير فراولة، مانجو، قطع فراولة، عسل، كريمة' }, tags: ['nonAlcoholic'] },
       { name: { en: 'Jamaika', de: 'Jamaika', ar: 'جامايكا' }, price: '8,00 EUR', desc: { en: 'Mango, orange, pineapple, grenadine', de: 'Mango, Orange, Ananas, Grenadine', ar: 'مانجو، برتقال، أناناس، جراندين' }, tags: ['nonAlcoholic'] },
       { name: { en: 'Tropikal', de: 'Tropikal', ar: 'تروبيكال' }, price: '8,00 EUR', desc: { en: 'Maracuja, pineapple, orange, lemon, grenadine', de: 'Maracuja, Ananas, Orange, Zitrone, Grenadine', ar: 'ماركوجا، أناناس، برتقال، ليمون، جراندين' }, tags: ['nonAlcoholic'] },
@@ -178,7 +178,7 @@ export const categories = [
     },
     image: kaiserCocktailImg,
     items: [
-      { name: { en: 'Avalanche Kaiser', de: 'Avalanche Kaiser', ar: 'امبراطور افلانش' }, price: '10,00 EUR', desc: { en: 'Avocado, strawberry, mango, fruit pieces, cream, nuts, honey', de: 'Avocado, Erdbeer, Mango, Fruchtstuecke, Sahne, Nuesse, Honig', ar: 'أفوكادو، فراولة، مانجو، قطع فواكه، كريمة، مكسرات، عسل' }, tags: ['signature', 'bestSeller'] },
+      { name: { en: 'Avalanche Kaiser', de: 'Avalanche Kaiser', ar: 'امبراطور افلانش' }, price: '10,00 EUR', desc: { en: 'Avocado, strawberry, mango, fruit pieces, cream, nuts, honey', de: 'Avocado, Erdbeer, Mango, Fruchtstuecke, Sahne, Nuesse, Honig', ar: 'أفوكادو، فراولة، مانجو، قطع فواكه، كريمة، مكسرات، عسل' }, tags: ['signature'] },
       { name: { en: 'Kaiser Strawberry', de: 'Kaiser Erdbeer', ar: 'امبراطور فرايز' }, price: '9,50 EUR', desc: { en: 'Mixed fruit pieces, strawberry juice, cream, honey, nuts', de: 'Gemischte Fruchtstuecke, Erdbeersaft, Sahne, Honig, Nuesse', ar: 'قطع فواكه مشكلة، عصير فراولة، كريمة، عسل، مكسرات' }, tags: ['signature'] },
       { name: { en: 'Kaiser Mango', de: 'Kaiser des Mangos', ar: 'امبراطور مانجا' }, price: '9,50 EUR', desc: { en: 'Mango juice, fruit pieces, cream, nuts', de: 'Mangosaft, Fruchtstuecke, Sahne, Nuesse', ar: 'عصير مانجو، قطع فواكه، كريمة، مكسرات' }, tags: ['signature'] },
       { name: { en: 'Cream Mix', de: 'Sahne Mix', ar: 'قشاطي' }, price: '9,50 EUR', desc: { en: 'Banana, milk, cream, honey, nuts', de: 'Banane, Milch, Sahne, Honig, Nuesse', ar: 'موز، حليب، كريمة، عسل، مكسرات' } },

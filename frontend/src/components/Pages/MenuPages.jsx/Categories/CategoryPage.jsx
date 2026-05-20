@@ -15,7 +15,6 @@ const ItemRow = ({ item, locale }) => (
     </div>
     <div className="text-right">
       <span className="text-[#D4AF37] font-bold text-sm sm:text-base md:text-lg whitespace-nowrap">{item.price}</span>
-      {(item.tags || []).includes('bestSeller') ? <p className="text-[10px] sm:text-xs uppercase tracking-wider text-[#C9A961] mt-1">Best Seller</p> : null}
     </div>
   </div>
 );
