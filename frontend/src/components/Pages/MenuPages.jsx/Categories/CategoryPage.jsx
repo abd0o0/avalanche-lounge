@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { useTranslation } from '../../../../i18n/useTranslation.jsx';
+import { markScroll } from '../../../../lib/scrollLock';
 
 const resolveText = (value, locale) => {
   if (!value) return '';
@@ -53,12 +54,27 @@ const CategoryPage = ({ category }) => {
       // If scroll is locked, prevent page flip completely
       if (isScrollingRef.current) {
         e.stopPropagation();
-        e.preventDefault();
+        try { e.preventDefault(); } catch (err) { /* ignore if passive listener */ }
       }
     }
   };
 
   const handleTouchEnd = (e) => {
+    if (isScrollingRef.current) {
+      // If we detected vertical scrolling, stop propagation so parent flipbook won't act
+      if (e) {
+        try { e.stopPropagation(); } catch (err) { /* ignore */ }
+        try { e.preventDefault(); } catch (err) { /* ignore if passive listener */ }
+      }
+      isScrollingRef.current = false;
+      // record that a scroll just happened so parent can ignore immediate flips
+      try { markScroll(); } catch (err) { /* ignore */ }
+      return;
+    }
+    // allow short taps/clicks to bubble up (so flipbook can handle them)
+  };
+
+  const handleTouchCancel = (e) => {
     isScrollingRef.current = false;
   };
 
@@ -84,9 +100,11 @@ const CategoryPage = ({ category }) => {
         <div 
           ref={scrollContainerRef}
           className="rounded-xl border border-[#C9A961]/25 bg-black/22 p-3 md:p-4 flex-1 overflow-y-auto"
+          style={{ touchAction: 'pan-y' }}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
+          onTouchCancel={handleTouchCancel}
         >
           {category.items.map((item, index) => <ItemRow key={`${category.key}-${index}`} item={item} locale={locale} />)}
         </div>

@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import ThankPage from './MenuPages.jsx/ThankPage/ThankPage.jsx';
 import CategoryPage from './MenuPages.jsx/Categories/CategoryPage.jsx';
 import { categories } from './MenuPages.jsx/Categories/categoriesData.js';
+import { isRecentScroll } from '../../lib/scrollLock';
 
 const BgTextureStyle = {};
 
@@ -36,7 +37,21 @@ function MyBook() {
       style={BgTextureStyle}
       className="mt-2 mb-20 overflow-hidden w-full h-full flex justify-center items-center bg-gray-100 dark:bg-gray-950 transition-colors duration-300"
     >
-      <div className="w-full max-w-4xl mx-auto flex justify-center items-center">
+      <div
+        className="w-full max-w-4xl mx-auto flex justify-center items-center"
+        onPointerDownCapture={(e) => {
+          if (isRecentScroll()) {
+            e.stopPropagation();
+            try { e.preventDefault(); } catch (err) { /* ignore */ }
+          }
+        }}
+        onTouchStartCapture={(e) => {
+          if (isRecentScroll()) {
+            e.stopPropagation();
+            try { e.preventDefault(); } catch (err) { /* ignore */ }
+          }
+        }}
+      >
         <HTMLFlipBook 
           width={dimensions.width} 
           height={dimensions.height} 
