@@ -16,6 +16,8 @@ const ThankPage = () => {
       };
       isScrollingRef.current = false; // Reset on new touch
     }
+    // Prevent flipbook from detecting this touch
+    e.stopPropagation();
   };
 
   const handleTouchMove = (e) => {
@@ -36,7 +38,9 @@ const ThankPage = () => {
     }
   };
 
-  const handleTouchEnd = () => {
+  const handleTouchEnd = (e) => {
+    // Prevent flipbook from detecting this touch end
+    e.stopPropagation();
     isScrollingRef.current = false; // Reset when finger lifts
   };
 

@@ -38,6 +38,8 @@ const CategoryPage = ({ category }) => {
       };
       isScrollingRef.current = false; // Reset on new touch
     }
+    // Prevent flipbook from detecting this touch
+    e.stopPropagation();
   };
 
   const handleTouchMove = (e) => {
@@ -50,15 +52,17 @@ const CategoryPage = ({ category }) => {
         isScrollingRef.current = true;
       }
 
-      // If scroll is locked, block page flip and prevent default
+      // If scroll is locked, prevent page flip completely
       if (isScrollingRef.current) {
         e.stopPropagation();
-        // Don't preventDefault on scrollable div - let it scroll normally
+        e.preventDefault();
       }
     }
   };
 
-  const handleTouchEnd = () => {
+  const handleTouchEnd = (e) => {
+    // Prevent flipbook from detecting this touch end
+    e.stopPropagation();
     isScrollingRef.current = false; // Reset when finger lifts
   };
 
