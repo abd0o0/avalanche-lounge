@@ -24,8 +24,9 @@ const ThankPage = () => {
       const deltaY = Math.abs(e.touches[0].clientY - touchStartRef.current.y);
       const touchDuration = Date.now() - touchStartRef.current.time;
 
-      // If touch is held longer than 150ms AND moves vertically > 10px, it's a scroll
-      if (touchDuration > 150 && deltaY > 10) {
+      // If vertical movement is dominant AND touch is held > 150ms, it's a scroll
+      // This prevents page flip even if you sweep at an angle
+      if (deltaY > deltaX && touchDuration > 150) {
         isScrollingRef.current = true;
       }
 
