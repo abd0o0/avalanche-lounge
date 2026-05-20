@@ -36,10 +36,8 @@ const CategoryPage = ({ category }) => {
         y: e.touches[0].clientY,
         time: Date.now(),
       };
-      isScrollingRef.current = false; // Reset on new touch
+      isScrollingRef.current = false;
     }
-    // Prevent flipbook from detecting this touch
-    e.stopPropagation();
   };
 
   const handleTouchMove = (e) => {
@@ -61,9 +59,7 @@ const CategoryPage = ({ category }) => {
   };
 
   const handleTouchEnd = (e) => {
-    // Prevent flipbook from detecting this touch end
-    e.stopPropagation();
-    isScrollingRef.current = false; // Reset when finger lifts
+    isScrollingRef.current = false;
   };
 
   const isShortList = category.items.length <= 5;
@@ -80,7 +76,6 @@ const CategoryPage = ({ category }) => {
           <h2 className="text-[#FAF8F5] font-bold text-lg sm:text-xl md:text-2xl tracking-wider" style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}>
             {resolveText(category.title, locale)}
           </h2>
-          onTouchEnd={handleTouchEnd}
           {category.description ? <p className="text-[#FAF8F5]/80 text-xs sm:text-sm md:text-base mt-1 leading-relaxed">{resolveText(category.description, locale)}</p> : null}
           <div className="w-20 h-px bg-[#D4AF37] mx-auto mt-2" />
           <div className="w-10 h-px bg-[#C9A961]/70 mx-auto mt-1" />
@@ -91,6 +86,7 @@ const CategoryPage = ({ category }) => {
           className="rounded-xl border border-[#C9A961]/25 bg-black/22 p-3 md:p-4 flex-1 overflow-y-auto"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
           {category.items.map((item, index) => <ItemRow key={`${category.key}-${index}`} item={item} locale={locale} />)}
         </div>
