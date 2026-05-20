@@ -1,4 +1,4 @@
-﻿import HTMLFlipBook from 'react-pageflip';
+import HTMLFlipBook from 'react-pageflip';
 import Page from './Pages.jsx';
 import Cover from './MenuPages.jsx/Cover/Cover.jsx';
 import coverImg from '../../assets/Menu_assets/Iced Coffee.png';
@@ -36,8 +36,21 @@ function MyBook() {
       style={BgTextureStyle}
       className="mt-2 mb-20 overflow-hidden w-full h-full flex justify-center items-center bg-gray-100 dark:bg-gray-950 transition-colors duration-300"
     >
-      <HTMLFlipBook width={dimensions.width} height={dimensions.height} showCover={true}>
-        <Page number={1}>
+      <div className="w-full max-w-4xl mx-auto flex justify-center items-center">
+        <HTMLFlipBook 
+          width={dimensions.width} 
+          height={dimensions.height} 
+          size="stretch"
+          minWidth={300}
+          maxWidth={600}
+          minHeight={350}
+          maxHeight={650}
+          showCover={true}
+          maxShadowOpacity={0.5}
+          mobileScrollSupport={true}
+          className="mx-auto"
+        >
+          <Page number={1}>
           <Cover coverImg={coverImg} />
         </Page>
 
@@ -54,6 +67,7 @@ function MyBook() {
           <Cover coverImg={coverImg} />
         </Page>
       </HTMLFlipBook>
+      </div>
     </div>
   );
 }
