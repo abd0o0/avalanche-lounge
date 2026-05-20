@@ -27,6 +27,11 @@ const CategoryPage = ({ category }) => {
     return <div className="h-full w-full bg-black" />;
   }
 
+  const handleTouchMove = (e) => {
+    // Allow scrolling without propagating to page flip
+    e.stopPropagation();
+  };
+
   const isShortList = category.items.length <= 5;
   const listWrapClass = isShortList ? 'justify-center' : 'justify-start';
 
@@ -46,7 +51,10 @@ const CategoryPage = ({ category }) => {
           <div className="w-10 h-px bg-[#C9A961]/70 mx-auto mt-1" />
         </div>
 
-        <div className="rounded-xl border border-[#C9A961]/25 bg-black/22 p-3 md:p-4 flex-1 overflow-y-auto">
+        <div 
+          className="rounded-xl border border-[#C9A961]/25 bg-black/22 p-3 md:p-4 flex-1 overflow-y-auto"
+          onTouchMove={handleTouchMove}
+        >
           {category.items.map((item, index) => <ItemRow key={`${category.key}-${index}`} item={item} locale={locale} />)}
         </div>
       </div>
