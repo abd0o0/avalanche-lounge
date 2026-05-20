@@ -22,6 +22,7 @@ const ItemRow = ({ item, locale }) => (
 const CategoryPage = ({ category }) => {
   const { locale } = useTranslation();
   const touchStartRef = useRef({ x: 0, y: 0 });
+  const isScrollingRef = useRef(false);
   const scrollContainerRef = useRef(null);
 
   if (!category || !Array.isArray(category.items)) {
@@ -34,6 +35,7 @@ const CategoryPage = ({ category }) => {
         x: e.touches[0].clientX,
         y: e.touches[0].clientY,
       };
+      isScrollingRef.current = false; // Reset on new touch
     }
   };
 
@@ -42,12 +44,20 @@ const CategoryPage = ({ category }) => {
       const deltaX = Math.abs(e.touches[0].clientX - touchStartRef.current.x);
       const deltaY = Math.abs(e.touches[0].clientY - touchStartRef.current.y);
 
-      // If vertical movement is more than horizontal, it's a scroll - block page flip
-      if (deltaY > deltaX) {
+      // Once we detect vertical scrolling (> 10px), lock it in
+      if (deltaY > 10) {
+        isScrollingRef.current = true;
+      }
+
+      // If scroll is locked, always block page flip
+      if (isScrollingRef.current) {
         e.stopPropagation();
       }
-      // If horizontal movement is more, allow page flip to happen naturally
     }
+  };
+
+  const handleTouchEnd = () => {
+    isScrollingRef.current = false; // Reset when finger lifts
   };
 
   const isShortList = category.items.length <= 5;
@@ -64,6 +74,7 @@ const CategoryPage = ({ category }) => {
           <h2 className="text-[#FAF8F5] font-bold text-lg sm:text-xl md:text-2xl tracking-wider" style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}>
             {resolveText(category.title, locale)}
           </h2>
+          onTouchEnd={handleTouchEnd}
           {category.description ? <p className="text-[#FAF8F5]/80 text-xs sm:text-sm md:text-base mt-1 leading-relaxed">{resolveText(category.description, locale)}</p> : null}
           <div className="w-20 h-px bg-[#D4AF37] mx-auto mt-2" />
           <div className="w-10 h-px bg-[#C9A961]/70 mx-auto mt-1" />
