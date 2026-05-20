@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useTranslation } from '../../../../i18n/useTranslation.jsx';
 
 const resolveText = (value, locale) => {
@@ -21,14 +21,32 @@ const ItemRow = ({ item, locale }) => (
 
 const CategoryPage = ({ category }) => {
   const { locale } = useTranslation();
+  const touchStartRef = useRef({ x: 0, y: 0 });
 
   if (!category || !Array.isArray(category.items)) {
     return <div className="h-full w-full bg-black" />;
   }
 
+  const handleTouchStart = (e) => {
+    if (e.touches && e.touches.length > 0) {
+      touchStartRef.current = {
+        x: e.touches[0].clientX,
+        y: e.touches[0].clientY,
+      };
+    }
+  };
+
   const handleTouchMove = (e) => {
-    // Allow scrolling without propagating to page flip
-    e.stopPropagation();
+    // Calculate movement distance
+    if (e.touches && e.touches.length > 0 && touchStartRef.current) {
+      const deltaX = Math.abs(e.touches[0].clientX - touchStartRef.current.x);
+      const deltaY = Math.abs(e.touches[0].clientY - touchStartRef.current.y);
+
+      // If vertical movement is greater than horizontal, allow scrolling
+      if (deltaY > deltaX) {
+        e.stopPropagation();
+      }
+    }
   };
 
   const isShortList = category.items.length <= 5;
@@ -52,6 +70,7 @@ const CategoryPage = ({ category }) => {
 
         <div 
           className="rounded-xl border border-[#C9A961]/25 bg-black/22 p-3 md:p-4 flex-1 overflow-y-auto"
+          onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
         >
           {category.items.map((item, index) => <ItemRow key={`${category.key}-${index}`} item={item} locale={locale} />)}

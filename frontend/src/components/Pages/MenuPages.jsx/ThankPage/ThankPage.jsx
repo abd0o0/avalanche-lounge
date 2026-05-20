@@ -1,16 +1,35 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import loungeBg from '../../../../assets/avalanche/lounge.jpg';
 import { useTranslation } from '../../../../i18n/useTranslation.jsx';
 
 const ThankPage = () => {
   const { t } = useTranslation();
+  const touchStartRef = useRef({ x: 0, y: 0 });
+
+  const handleTouchStart = (e) => {
+    if (e.touches && e.touches.length > 0) {
+      touchStartRef.current = {
+        x: e.touches[0].clientX,
+        y: e.touches[0].clientY,
+      };
+    }
+  };
 
   const handleTouchMove = (e) => {
-    e.stopPropagation();
+    // Calculate movement distance
+    if (e.touches && e.touches.length > 0 && touchStartRef.current) {
+      const deltaX = Math.abs(e.touches[0].clientX - touchStartRef.current.x);
+      const deltaY = Math.abs(e.touches[0].clientY - touchStartRef.current.y);
+
+      // If vertical movement is greater than horizontal, allow scrolling
+      if (deltaY > deltaX) {
+        e.stopPropagation();
+      }
+    }
   };
 
   return (
-    <div className="h-full w-full relative overflow-hidden" onTouchMove={handleTouchMove}>
+    <div className="h-full w-full relative overflow-hidden" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
       <img src={loungeBg} alt="Avalanche Lounge" className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/40" />
 
