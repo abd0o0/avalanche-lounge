@@ -22,7 +22,6 @@ const ItemRow = ({ item, locale }) => (
 const CategoryPage = ({ category }) => {
   const { locale } = useTranslation();
   const touchStartRef = useRef({ x: 0, y: 0 });
-  const isScrollingRef = useRef(false);
   const scrollContainerRef = useRef(null);
 
   if (!category || !Array.isArray(category.items)) {
@@ -35,30 +34,20 @@ const CategoryPage = ({ category }) => {
         x: e.touches[0].clientX,
         y: e.touches[0].clientY,
       };
-      isScrollingRef.current = false;
     }
   };
 
   const handleTouchMove = (e) => {
-    // Calculate movement distance
     if (e.touches && e.touches.length > 0 && touchStartRef.current) {
       const deltaX = Math.abs(e.touches[0].clientX - touchStartRef.current.x);
       const deltaY = Math.abs(e.touches[0].clientY - touchStartRef.current.y);
 
-      // If any vertical movement has occurred, mark as scrolling
-      if (deltaY > 5) {
-        isScrollingRef.current = true;
-      }
-
-      // Prevent page flip if scrolling is active
-      if (isScrollingRef.current) {
+      // If vertical movement is more than horizontal, it's a scroll - block page flip
+      if (deltaY > deltaX) {
         e.stopPropagation();
       }
+      // If horizontal movement is more, allow page flip to happen naturally
     }
-  };
-
-  const handleTouchEnd = () => {
-    isScrollingRef.current = false;
   };
 
   const isShortList = category.items.length <= 5;
@@ -85,7 +74,6 @@ const CategoryPage = ({ category }) => {
           className="rounded-xl border border-[#C9A961]/25 bg-black/22 p-3 md:p-4 flex-1 overflow-y-auto"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
         >
           {category.items.map((item, index) => <ItemRow key={`${category.key}-${index}`} item={item} locale={locale} />)}
         </div>

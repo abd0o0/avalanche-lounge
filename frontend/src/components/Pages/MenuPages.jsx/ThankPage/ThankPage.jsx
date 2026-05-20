@@ -5,7 +5,6 @@ import { useTranslation } from '../../../../i18n/useTranslation.jsx';
 const ThankPage = () => {
   const { t } = useTranslation();
   const touchStartRef = useRef({ x: 0, y: 0 });
-  const isScrollingRef = useRef(false);
 
   const handleTouchStart = (e) => {
     if (e.touches && e.touches.length > 0) {
@@ -13,34 +12,24 @@ const ThankPage = () => {
         x: e.touches[0].clientX,
         y: e.touches[0].clientY,
       };
-      isScrollingRef.current = false;
     }
   };
 
   const handleTouchMove = (e) => {
-    // Calculate movement distance
     if (e.touches && e.touches.length > 0 && touchStartRef.current) {
       const deltaX = Math.abs(e.touches[0].clientX - touchStartRef.current.x);
       const deltaY = Math.abs(e.touches[0].clientY - touchStartRef.current.y);
 
-      // If any vertical movement has occurred, mark as scrolling
-      if (deltaY > 5) {
-        isScrollingRef.current = true;
-      }
-
-      // Prevent page flip if scrolling is active
-      if (isScrollingRef.current) {
+      // If vertical movement is more than horizontal, it's a scroll - block page flip
+      if (deltaY > deltaX) {
         e.stopPropagation();
       }
+      // If horizontal movement is more, allow page flip to happen naturally
     }
   };
 
-  const handleTouchEnd = () => {
-    isScrollingRef.current = false;
-  };
-
   return (
-    <div className="h-full w-full relative overflow-hidden" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
+    <div className="h-full w-full relative overflow-hidden" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
       <img src={loungeBg} alt="Avalanche Lounge" className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/40" />
 
