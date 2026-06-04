@@ -40,7 +40,7 @@ export default function Content() {
                 {[
                   { icon: <FaInstagram />, href: 'https://www.instagram.com/avalanche.lounge/', label: 'Instagram' },
                   { icon: <FaFacebook />, href: 'https://www.facebook.com/profile.php?id=61590191130766', label: 'Facebook' },
-                  { icon: <FaTiktok />, href: 'https://www.tiktok.com/@avalanche.essen', label: 'TikTok' },
+                  { icon: <FaTiktok />, href: 'https://www.tiktok.com/@sarab.lounge', label: 'TikTok' },
                 ].map(({ icon, href, label }) => (
                   <a
                     key={label}
